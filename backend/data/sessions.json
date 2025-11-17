@@ -308,5 +308,25 @@
     "status": "completed",
     "id": "1763407304984-670547678",
     "created_at": "2025-11-17T19:21:44.984Z"
+  },
+  {
+    "user_id": 0,
+    "audio_url": "/audio/1763408010683-742534427.mp3",
+    "questions": "",
+    "transcript": "Welcome to today's lecture on environmental science. \n    Climate change is one of the most pressing challenges facing our planet. \n    The Earth's average temperature has risen by approximately 1.1 degrees Celsius since pre-industrial times. \n    This warming is primarily caused by human activities, especially the burning of fossil fuels. \n    We need to reduce carbon dioxide emissions and transition to renewable energy sources. \n    Individual actions like using public transportation, reducing energy consumption, and supporting sustainable practices can make a significant difference.",
+    "keywords": "[\"energy\",\"transportation\",\"environmental\",\"approximately\",\"temperature\",\"consumption\",\"sustainable\",\"significant\",\"challenges\",\"industrial\",\"activities\",\"especially\",\"transition\",\"individual\",\"supporting\",\"difference\",\"primarily\",\"emissions\",\"renewable\",\"practices\",\"pressing\",\"reducing\",\"welcome\",\"lecture\",\"science\",\"climate\",\"average\",\"degrees\",\"celsius\",\"warming\",\"burning\",\"dioxide\",\"sources\",\"actions\",\"change\",\"facing\",\"planet\",\"caused\",\"fossil\",\"reduce\",\"carbon\",\"public\"]",
+    "status": "completed",
+    "id": "1763408010718-345292240",
+    "created_at": "2025-11-17T19:33:30.718Z"
+  },
+  {
+    "user_id": 0,
+    "audio_url": "/audio/1763408272062-405461119.mp3",
+    "questions": "",
+    "transcript": "Welcome to today's lecture on environmental science. \n    Climate change is one of the most pressing challenges facing our planet. \n    The Earth's average temperature has risen by approximately 1.1 degrees Celsius since pre-industrial times. \n    This warming is primarily caused by human activities, especially the burning of fossil fuels. \n    We need to reduce carbon dioxide emissions and transition to renewable energy sources. \n    Individual actions like using public transportation, reducing energy consumption, and supporting sustainable practices can make a significant difference.",
+    "keywords": "[\"energy\",\"transportation\",\"environmental\",\"approximately\",\"temperature\",\"consumption\",\"sustainable\",\"significant\",\"challenges\",\"industrial\",\"activities\",\"especially\",\"transition\",\"individual\",\"supporting\",\"difference\",\"primarily\",\"emissions\",\"renewable\",\"practices\",\"pressing\",\"reducing\",\"welcome\",\"lecture\",\"science\",\"climate\",\"average\",\"degrees\",\"celsius\",\"warming\",\"burning\",\"dioxide\",\"sources\",\"actions\",\"change\",\"facing\",\"planet\",\"caused\",\"fossil\",\"reduce\",\"carbon\",\"public\"]",
+    "status": "completed",
+    "id": "1763408272082-774189845",
+    "created_at": "2025-11-17T19:37:52.082Z"
   }
 ]
