@@ -186,7 +186,7 @@ function App() {
       <main className="max-w-7xl mx-auto px-6 py-8">
         {!session ? (
           <div className="animate-fade-in-up">
-            <FileUpload onUploadSuccess={handleUploadSuccess} />
+            <FileUpload onUploadSuccess={handleUploadSuccess} isDarkMode={isDarkMode} />
           </div>
         ) : (
           <div className="space-y-8 animate-fade-in-up">
@@ -269,43 +269,6 @@ function App() {
                   <div className="xl:col-span-3 space-y-6">
                     <div className={`rounded-3xl border transition-all duration-300 hover:shadow-2xl ${getCardClasses()} p-8`}>
                       <AudioPlayer audioUrl={session.audioUrl} title="听力音频练习" />
-                      
-                      {showTranscript && session.transcript && (
-                        <div className={`rounded-2xl border mt-6 p-6 ${
-                          isDarkMode 
-                            ? 'bg-gray-700/50 border-gray-600' 
-                            : 'bg-gray-50 border-gray-200'
-                        }`}>
-                          <div className="flex items-center mb-6">
-                            <div className={`w-10 h-10 rounded-full flex items-center justify-center mr-4 ${
-                              isDarkMode ? 'bg-green-900/30' : 'bg-green-50'
-                            }`}>
-                              <svg className={`w-5 h-5 ${
-                                isDarkMode ? 'text-green-400' : 'text-green-600'
-                              }`} fill="currentColor" viewBox="0 0 20 20">
-                                <path fillRule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clipRule="evenodd"/>
-                              </svg>
-                            </div>
-                            <h2 className="text-xl font-bold">
-                              智能转录文本
-                            </h2>
-                            <div className={`ml-auto px-3 py-1 rounded-full text-sm font-medium ${
-                              isDarkMode 
-                                ? 'bg-green-900/30 text-green-400' 
-                                : 'bg-green-100 text-green-700'
-                            }`}>
-                              AI生成
-                            </div>
-                          </div>
-                          <div className={`rounded-xl p-6 ${
-                            isDarkMode 
-                              ? 'bg-gray-800/50 text-gray-300' 
-                              : 'bg-white text-gray-700'
-                          } leading-relaxed whitespace-pre-wrap shadow-inner`}>
-                            {session.transcript}
-                          </div>
-                        </div>
-                      )}
                     </div>
                     
                     {session.questions && session.questions.trim().length > 0 && (
@@ -314,19 +277,26 @@ function App() {
                       </div>
                     )}
                     
-                    {session.transcript && (
+                    {showTranscript && session.transcript && (
                       <div className={`rounded-3xl border transition-all duration-300 hover:shadow-lg ${getCardClasses()} p-6`}>
                         <div className="flex items-center mb-6">
                           <div className={`w-10 h-10 rounded-full flex items-center justify-center mr-4 ${
-                            isDarkMode ? 'bg-blue-900/30' : 'bg-blue-50'
+                            isDarkMode ? 'bg-emerald-900/30' : 'bg-emerald-50'
                           }`}>
-                            <svg className={`w-5 h-5 ${isDarkMode ? 'text-blue-400' : 'text-blue-600'}`} fill="currentColor" viewBox="0 0 20 20">
-                              <path fillRule="evenodd" d="M18 13V5a2 2 0 00-2-2H4a2 2 0 00-2 2v8a2 2 0 002 2h3l3 3 3-3h3a2 2 0 002-2zM5 7a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1zm1 3a1 1 0 100 2h3a1 1 0 100-2H6z" clipRule="evenodd" />
+                            <svg className={`w-5 h-5 ${isDarkMode ? 'text-emerald-400' : 'text-emerald-600'}`} fill="currentColor" viewBox="0 0 20 20">
+                              <path fillRule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clipRule="evenodd"/>
                             </svg>
                           </div>
                           <h3 className="text-xl font-bold">
-                            完整音频转写
+                            AI智能转写文本
                           </h3>
+                          <div className={`ml-auto px-3 py-1 rounded-full text-sm font-medium ${
+                            isDarkMode 
+                              ? 'bg-emerald-900/30 text-emerald-400' 
+                              : 'bg-emerald-100 text-emerald-700'
+                          }`}>
+                            练习完成后显示
+                          </div>
                         </div>
                         <div className={`prose prose-lg max-w-none p-6 rounded-xl ${
                           isDarkMode 
