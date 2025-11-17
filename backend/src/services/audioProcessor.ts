@@ -17,18 +17,24 @@ export async function processAudio(audioPath: string): Promise<string> {
 
     // 检查API密钥是否配置
     if (!process.env.SILICONFLOW_API_KEY) {
-      console.log('未配置SiliconFlow API密钥，使用模拟模式');
+      console.log('❌ 未配置SiliconFlow API密钥，使用模拟模式');
       return processAudioMock();
     }
 
+    console.log('✅ API密钥已配置，开始调用SiliconFlow API...');
+    console.log(`   API密钥: ${process.env.SILICONFLOW_API_KEY.substring(0, 10)}...`);
+
     // 使用SiliconFlow API进行语音识别
     try {
+      console.log('🚀 正在调用SiliconFlow API进行音频转写...');
       const transcription = await processAudioWithSiliconFlow(audioPath);
-      console.log(`音频转文字成功，文本长度: ${transcription.length}`);
+      console.log(`✅ 音频转文字成功！文本长度: ${transcription.length} 字符`);
+      console.log(`📝 转写预览: ${transcription.substring(0, 100)}...`);
       return transcription;
     } catch (apiError: any) {
       // 如果API调用失败，自动切换到mock模式
-      console.log(`SiliconFlow API调用失败，切换到模拟模式: ${apiError.message}`);
+      console.log(`❌ SiliconFlow API调用失败，切换到模拟模式`);
+      console.log(`   错误信息: ${apiError.message}`);
       return processAudioMock();
     }
   } catch (error: any) {
@@ -40,12 +46,17 @@ export async function processAudio(audioPath: string): Promise<string> {
 
 async function processAudioWithSiliconFlow(audioPath: string): Promise<string> {
   const url = 'https://api.siliconflow.cn/v1/audio/transcriptions';
+  const model = 'FunAudioLLM/SenseVoiceSmall';
+  
+  console.log(`   📡 API端点: ${url}`);
+  console.log(`   🤖 使用模型: ${model}`);
+  console.log(`   📁 音频文件: ${path.basename(audioPath)}`);
   
   // 动态导入form-data以避免ES模块兼容性问题
   const { default: FormData } = await import('form-data');
   
   const form = new FormData();
-  form.append('model', 'FunAudioLLM/SenseVoiceSmall'); // SiliconFlow官方推荐模型
+  form.append('model', model); // SiliconFlow官方推荐模型
   
   // 关键：使用文件流而不是Buffer，与curl命令完全一致
   form.append('file', fs.createReadStream(audioPath));
@@ -59,32 +70,46 @@ async function processAudioWithSiliconFlow(audioPath: string): Promise<string> {
     body: form
   };
 
+  console.log(`   ⏳ 发送请求到SiliconFlow服务器...`);
   const response = await fetch(url, options);
+  
+  console.log(`   📬 收到响应: ${response.status} ${response.statusText}`);
   
   if (!response.ok) {
     const errorText = await response.text();
-    console.error(`SiliconFlow API错误: ${response.status} ${response.statusText}`);
-    console.error('错误详情:', errorText);
+    console.error(`   ❌ SiliconFlow API错误: ${response.status} ${response.statusText}`);
+    console.error(`   📄 错误详情:`, errorText);
     throw new Error(`SiliconFlow API错误: ${response.status} ${response.statusText}`);
   }
 
   const data: any = await response.json();
+  console.log(`   📦 API响应数据类型:`, typeof data);
+  console.log(`   🔍 响应包含字段:`, Object.keys(data));
   
   // 根据SiliconFlow API的响应格式提取文本
   if (data.text) {
+    console.log(`   ✅ 成功提取转写文本（从data.text字段）`);
     return data.text;
   } else if (data.transcription) {
+    console.log(`   ✅ 成功提取转写文本（从data.transcription字段）`);
     return data.transcription;
   } else if (typeof data === 'string') {
+    console.log(`   ✅ 成功提取转写文本（响应本身是字符串）`);
     return data;
   } else {
+    console.error(`   ❌ 未知的API响应格式:`, JSON.stringify(data));
     throw new Error('API响应格式未知');
   }
 }
 
 // 模拟音频转文字功能
 function processAudioMock(): string {
-  console.log('使用模拟音频转文字功能');
+  console.log('');
+  console.log('⚠️  =====================================');
+  console.log('⚠️  使用模拟音频转文字功能（Mock模式）');
+  console.log('⚠️  API未被真正调用，返回示例文本');
+  console.log('⚠️  =====================================');
+  console.log('');
   
   // 生成一段示例听力材料
   const sampleTranscripts = [
