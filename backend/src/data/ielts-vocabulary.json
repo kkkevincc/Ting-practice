@@ -1,0 +1,2314 @@
+{
+  "ielts_vocabulary": [
+    {
+      "word": "abandon",
+      "definition": "to leave completely and finally; forsake utterly",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band6"
+    },
+    {
+      "word": "ability",
+      "definition": "the power or capacity to do or act physically or mentally",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band4"
+    },
+    {
+      "word": "academic",
+      "definition": "relating to education and scholarship",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band5"
+    },
+    {
+      "word": "accept",
+      "definition": "to receive willingly or agree to something",
+      "category": "general",
+      "frequency": "high",
+      "level": "band3"
+    },
+    {
+      "word": "access",
+      "definition": "the means or opportunity to approach or enter",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band6"
+    },
+    {
+      "word": "accident",
+      "definition": "an unfortunate incident that happens unexpectedly",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band4"
+    },
+    {
+      "word": "accompany",
+      "definition": "to go somewhere with someone",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band6"
+    },
+    {
+      "word": "accomplish",
+      "definition": "to achieve or complete successfully",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band7"
+    },
+    {
+      "word": "accordance",
+      "definition": "in accordance with - in a manner consistent with",
+      "category": "academic",
+      "frequency": "medium",
+      "level": "band7"
+    },
+    {
+      "word": "accordingly",
+      "definition": "in a way that is appropriate to the particular circumstances",
+      "category": "academic",
+      "frequency": "medium",
+      "level": "band7"
+    },
+    {
+      "word": "account",
+      "definition": "a report or description of an event or experience",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band5"
+    },
+    {
+      "word": "accumulate",
+      "definition": "to gather together or acquire an increasing number or quantity",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band6"
+    },
+    {
+      "word": "accurate",
+      "definition": "correct in all details; exact",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band5"
+    },
+    {
+      "word": "accuse",
+      "definition": "to charge someone with an offense or crime",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band6"
+    },
+    {
+      "word": "achieve",
+      "definition": "to successfully bring about or reach a desired objective",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band4"
+    },
+    {
+      "word": "acknowledge",
+      "definition": "to accept or admit the truth or existence of something",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band6"
+    },
+    {
+      "word": "acquire",
+      "definition": "to buy or obtain an asset or object for oneself",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band6"
+    },
+    {
+      "word": "acquisition",
+      "definition": "the learning or developing of a skill, ability, or quality",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band7"
+    },
+    {
+      "word": "adapt",
+      "definition": "to change or adjust to suit new conditions",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band5"
+    },
+    {
+      "word": "adequate",
+      "definition": "satisfactory or acceptable in quality or quantity",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band6"
+    },
+    {
+      "word": "adjacent",
+      "definition": "next to or adjoining something else",
+      "category": "academic",
+      "frequency": "medium",
+      "level": "band7"
+    },
+    {
+      "word": "adjust",
+      "definition": "to alter or move something slightly in order to achieve desired result",
+      "category": "general",
+      "frequency": "high",
+      "level": "band5"
+    },
+    {
+      "word": "administration",
+      "definition": "the process of running a business or organization",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band6"
+    },
+    {
+      "word": "admission",
+      "definition": "a statement acknowledging the truth of something",
+      "category": "academic",
+      "frequency": "medium",
+      "level": "band6"
+    },
+    {
+      "word": "adopt",
+      "definition": "to take up or start to use a new method or approach",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band6"
+    },
+    {
+      "word": "adult",
+      "definition": "a person who is fully grown or developed",
+      "category": "general",
+      "frequency": "high",
+      "level": "band3"
+    },
+    {
+      "word": "advance",
+      "definition": "to move forward or make progress",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band5"
+    },
+    {
+      "word": "advanced",
+      "definition": "far on or ahead in development or progress",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band5"
+    },
+    {
+      "word": "advantage",
+      "definition": "a condition giving a greater chance of success",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band4"
+    },
+    {
+      "word": "adventure",
+      "definition": "an unusual and exciting experience or activity",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band4"
+    },
+    {
+      "word": "advertise",
+      "definition": "to describe or draw attention to a product or service",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band4"
+    },
+    {
+      "word": "advice",
+      "definition": "guidance or recommendations offered with regard to future action",
+      "category": "general",
+      "frequency": "high",
+      "level": "band3"
+    },
+    {
+      "word": "advocate",
+      "definition": "to publicly recommend or support",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band7"
+    },
+    {
+      "word": "aesthetic",
+      "definition": "concerned with beauty or the appreciation of beauty",
+      "category": "academic",
+      "frequency": "medium",
+      "level": "band8"
+    },
+    {
+      "word": "affect",
+      "definition": "to influence or make a change to",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band6"
+    },
+    {
+      "word": "affection",
+      "definition": "a gentle feeling of fondness or liking",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band5"
+    },
+    {
+      "word": "afford",
+      "definition": "to have enough money to pay for",
+      "category": "general",
+      "frequency": "high",
+      "level": "band3"
+    },
+    {
+      "word": "agency",
+      "definition": "a business or organization providing a particular service",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band6"
+    },
+    {
+      "word": "agenda",
+      "definition": "a list of items to be discussed at a meeting",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band5"
+    },
+    {
+      "word": "agent",
+      "definition": "a person who acts on behalf of another",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band5"
+    },
+    {
+      "word": "aggressive",
+      "definition": "ready or likely to attack or confront",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band5"
+    },
+    {
+      "word": "agriculture",
+      "definition": "the practice of farming crops and livestock",
+      "category": "academic",
+      "frequency": "medium",
+      "level": "band6"
+    },
+    {
+      "word": "aid",
+      "definition": "help, support, or救援 given to someone",
+      "category": "general",
+      "frequency": "high",
+      "level": "band4"
+    },
+    {
+      "word": "aim",
+      "definition": "the purpose or intention with which something is done",
+      "category": "general",
+      "frequency": "high",
+      "level": "band3"
+    },
+    {
+      "word": "aircraft",
+      "definition": "an airplane, helicopter, or other flying vehicle",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band5"
+    },
+    {
+      "word": "alert",
+      "definition": "watchful and ready to respond to danger",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band5"
+    },
+    {
+      "word": "allocate",
+      "definition": "to distribute resources or duties for a particular purpose",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band6"
+    },
+    {
+      "word": "allow",
+      "definition": "to permit or enable someone to do something",
+      "category": "general",
+      "frequency": "high",
+      "level": "band3"
+    },
+    {
+      "word": "alter",
+      "definition": "to change or cause to change in character or composition",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band6"
+    },
+    {
+      "word": "alternative",
+      "definition": "available as another possibility or choice",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band5"
+    },
+    {
+      "word": "amateur",
+      "definition": "a person who engages in activity for pleasure rather than payment",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band6"
+    },
+    {
+      "word": "amaze",
+      "definition": "to surprise greatly; fill with wonder",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band4"
+    },
+    {
+      "word": "ambition",
+      "definition": "a strong desire to do something or to achieve something",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band5"
+    },
+    {
+      "word": "ambulance",
+      "definition": "a vehicle for taking sick or injured people to hospital",
+      "category": "general",
+      "frequency": "low",
+      "level": "band4"
+    },
+    {
+      "word": "amend",
+      "definition": "to modify formally or officially",
+      "category": "academic",
+      "frequency": "medium",
+      "level": "band7"
+    },
+    {
+      "word": "amount",
+      "definition": "a quantity of something, especially the total of a thing or things",
+      "category": "general",
+      "frequency": "high",
+      "level": "band3"
+    },
+    {
+      "word": "ample",
+      "definition": "enough or more than enough; plentiful",
+      "category": "academic",
+      "frequency": "medium",
+      "level": "band7"
+    },
+    {
+      "word": "analyse",
+      "definition": "to examine in detail to understand better",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band6"
+    },
+    {
+      "word": "analysis",
+      "definition": "detailed examination of the elements or structure of something",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band6"
+    },
+    {
+      "word": "ancestor",
+      "definition": "a person from whom one is descended",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band6"
+    },
+    {
+      "word": "ancient",
+      "definition": "belonging to the very distant past",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band4"
+    },
+    {
+      "word": "anecdote",
+      "definition": "a short interesting story about a real incident or person",
+      "category": "general",
+      "frequency": "low",
+      "level": "band6"
+    },
+    {
+      "word": "anger",
+      "definition": "a strong feeling of displeasure or displeasure",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band4"
+    },
+    {
+      "word": "angle",
+      "definition": "the space between two intersecting lines or surfaces",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band4"
+    },
+    {
+      "word": "animal",
+      "definition": "a living organism that feeds on organic matter",
+      "category": "general",
+      "frequency": "high",
+      "level": "band2"
+    },
+    {
+      "word": "animate",
+      "definition": "bringing to life; lively or active",
+      "category": "academic",
+      "frequency": "medium",
+      "level": "band7"
+    },
+    {
+      "word": "anniversary",
+      "definition": "the yearly recurrence of a date marking a notable event",
+      "category": "general",
+      "frequency": "low",
+      "level": "band5"
+    },
+    {
+      "word": "announce",
+      "definition": "to make a public declaration",
+      "category": "general",
+      "frequency": "high",
+      "level": "band4"
+    },
+    {
+      "word": "annoy",
+      "definition": "to irritate or displease someone",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band4"
+    },
+    {
+      "word": "annual",
+      "definition": "occurring once every year",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band6"
+    },
+    {
+      "word": "anonymous",
+      "definition": "with no name acknowledged or recognized",
+      "category": "academic",
+      "frequency": "medium",
+      "level": "band6"
+    },
+    {
+      "word": "answer",
+      "definition": "a response or reply to a question or statement",
+      "category": "general",
+      "frequency": "high",
+      "level": "band2"
+    },
+    {
+      "word": "anticipate",
+      "definition": "to regard as probable; expect or predict",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band7"
+    },
+    {
+      "word": "anxiety",
+      "definition": "a feeling of worry, nervousness, or unease",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band5"
+    },
+    {
+      "word": "anxious",
+      "definition": "feeling or showing nervousness or worry",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band4"
+    },
+    {
+      "word": "apart",
+      "definition": "away from another or others in position",
+      "category": "general",
+      "frequency": "high",
+      "level": "band4"
+    },
+    {
+      "word": "apology",
+      "definition": "a regretful acknowledgment of an offense or failure",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band4"
+    },
+    {
+      "word": "apparent",
+      "definition": "clearly visible or understood; obvious",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band6"
+    },
+    {
+      "word": "appeal",
+      "definition": "a request made to a higher authority for a decision to be changed",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band6"
+    },
+    {
+      "word": "appear",
+      "definition": "to begin to be seen; come into sight or existence",
+      "category": "general",
+      "frequency": "high",
+      "level": "band3"
+    },
+    {
+      "word": "appearance",
+      "definition": "the way someone or something looks",
+      "category": "general",
+      "frequency": "high",
+      "level": "band4"
+    },
+    {
+      "word": "application",
+      "definition": "a formal request to be considered for a position or benefit",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band5"
+    },
+    {
+      "word": "apply",
+      "definition": "to make a formal request or application",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band4"
+    },
+    {
+      "word": "appoint",
+      "definition": "to assign to a position or office",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band6"
+    },
+    {
+      "word": "appreciate",
+      "definition": "to recognize the full worth of something",
+      "category": "general",
+      "frequency": "high",
+      "level": "band5"
+    },
+    {
+      "word": "approach",
+      "definition": "to come near or nearer to someone or something",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band5"
+    },
+    {
+      "word": "appropriate",
+      "definition": "suitable or proper in the circumstances",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band6"
+    },
+    {
+      "word": "approval",
+      "definition": "the action of approving something",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band5"
+    },
+    {
+      "word": "approve",
+      "definition": "to officially agree to or accept something",
+      "category": "general",
+      "frequency": "high",
+      "level": "band4"
+    },
+    {
+      "word": "approximate",
+      "definition": "close to the actual, but not completely accurate or exact",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band6"
+    },
+    {
+      "word": "arbitrary",
+      "definition": "based on random choice or personal whim",
+      "category": "academic",
+      "frequency": "medium",
+      "level": "band8"
+    },
+    {
+      "word": "architect",
+      "definition": "a person who designs buildings and supervises their construction",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band5"
+    },
+    {
+      "word": "area",
+      "definition": "a region or extent of space",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band3"
+    },
+    {
+      "word": "argue",
+      "definition": "to give reasons for or against something",
+      "category": "general",
+      "frequency": "high",
+      "level": "band4"
+    },
+    {
+      "word": "argument",
+      "definition": "an exchange of diverging or opposite views",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band5"
+    },
+    {
+      "word": "arise",
+      "definition": "to emerge; become evident",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band6"
+    },
+    {
+      "word": "arrangement",
+      "definition": "the action, process, or result of organizing something",
+      "category": "general",
+      "frequency": "high",
+      "level": "band4"
+    },
+    {
+      "word": "arrive",
+      "definition": "to reach a destination",
+      "category": "general",
+      "frequency": "high",
+      "level": "band2"
+    },
+    {
+      "word": "arrow",
+      "definition": "a shaft shot from a bow as a weapon or for signaling",
+      "category": "general",
+      "frequency": "low",
+      "level": "band3"
+    },
+    {
+      "word": "art",
+      "definition": "the expression or application of human creative skill",
+      "category": "general",
+      "frequency": "high",
+      "level": "band3"
+    },
+    {
+      "word": "article",
+      "definition": "a piece of writing in a newspaper, magazine, or journal",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band4"
+    },
+    {
+      "word": "artist",
+      "definition": "a person who creates art",
+      "category": "general",
+      "frequency": "high",
+      "level": "band3"
+    },
+    {
+      "word": "artistic",
+      "definition": "having or revealing natural creative skill",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band5"
+    },
+    {
+      "word": "aspects",
+      "definition": "a particular part or feature of something",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band5"
+    },
+    {
+      "word": "assess",
+      "definition": "to evaluate or estimate the nature, ability, or quality of",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band6"
+    },
+    {
+      "word": "assessment",
+      "definition": "the action of assessing someone or something",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band6"
+    },
+    {
+      "word": "asset",
+      "definition": "a useful or valuable thing or person",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band7"
+    },
+    {
+      "word": "assign",
+      "definition": "to allocate a job or duty to someone",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band6"
+    },
+    {
+      "word": "assist",
+      "definition": "to help someone",
+      "category": "general",
+      "frequency": "high",
+      "level": "band4"
+    },
+    {
+      "word": "assistance",
+      "definition": "the action of helping someone with a task",
+      "category": "general",
+      "frequency": "high",
+      "level": "band5"
+    },
+    {
+      "word": "associate",
+      "definition": "to connect someone or something with something else",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band6"
+    },
+    {
+      "word": "association",
+      "definition": "a group organized for a joint purpose",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band6"
+    },
+    {
+      "word": "assume",
+      "definition": "to suppose something without proof",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band6"
+    },
+    {
+      "word": "assure",
+      "definition": "to tell confidently or positively",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band5"
+    },
+    {
+      "word": "athlete",
+      "definition": "a person who is proficient in sports and other forms of physical exercise",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band4"
+    },
+    {
+      "word": "atmosphere",
+      "definition": "the gases surrounding the earth or another planet",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band5"
+    },
+    {
+      "word": "attach",
+      "definition": "to fasten or join something to something else",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band6"
+    },
+    {
+      "word": "attachment",
+      "definition": "a file sent with an email message",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band5"
+    },
+    {
+      "word": "attack",
+      "definition": "to use violence to try to hurt or kill someone",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band4"
+    },
+    {
+      "word": "attempt",
+      "definition": "an effort to achieve something",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band5"
+    },
+    {
+      "word": "attend",
+      "definition": "to be present at an event, meeting, or function",
+      "category": "general",
+      "frequency": "high",
+      "level": "band4"
+    },
+    {
+      "word": "attention",
+      "definition": "the action of looking at or listening to something carefully",
+      "category": "general",
+      "frequency": "high",
+      "level": "band3"
+    },
+    {
+      "word": "attitude",
+      "definition": "a settled way of thinking or feeling about something",
+      "category": "general",
+      "frequency": "high",
+      "level": "band4"
+    },
+    {
+      "word": "attract",
+      "definition": "to draw or pull someone or something toward them",
+      "category": "general",
+      "frequency": "high",
+      "level": "band4"
+    },
+    {
+      "word": "attraction",
+      "definition": "the action or power of attracting",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band5"
+    },
+    {
+      "word": "attribute",
+      "definition": "a quality or feature considered characteristic of someone",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band7"
+    },
+    {
+      "word": "audience",
+      "definition": "the assembled spectators or listeners at a public event",
+      "category": "general",
+      "frequency": "high",
+      "level": "band4"
+    },
+    {
+      "word": "author",
+      "definition": "a writer of a book, article, or document",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band4"
+    },
+    {
+      "word": "authority",
+      "definition": "the power or right to give orders and enforce obedience",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band5"
+    },
+    {
+      "word": "automatic",
+      "definition": "working by itself without direct human control",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band5"
+    },
+    {
+      "word": "available",
+      "definition": "able to be used or obtained",
+      "category": "general",
+      "frequency": "high",
+      "level": "band3"
+    },
+    {
+      "word": "average",
+      "definition": "a number expressing the central or typical value in a set of data",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band4"
+    },
+    {
+      "word": "avoid",
+      "definition": "to keep away from or stop oneself from doing something",
+      "category": "general",
+      "frequency": "high",
+      "level": "band4"
+    },
+    {
+      "word": "aware",
+      "definition": "having knowledge or perception of a situation or fact",
+      "category": "general",
+      "frequency": "high",
+      "level": "band4"
+    },
+    {
+      "word": "awareness",
+      "definition": "knowledge that something exists, or understanding of a situation",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band5"
+    },
+    {
+      "word": "bachelor",
+      "definition": "an unmarried man",
+      "category": "general",
+      "frequency": "low",
+      "level": "band4"
+    },
+    {
+      "word": "background",
+      "definition": "the circumstances that form the setting for an event",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band5"
+    },
+    {
+      "word": "balance",
+      "definition": "a condition of equilibrium or equality",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band5"
+    },
+    {
+      "word": "ban",
+      "definition": "to officially or legally prohibit or forbid",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band4"
+    },
+    {
+      "word": "band",
+      "definition": "a group of musicians",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band3"
+    },
+    {
+      "word": "barrier",
+      "definition": "a fence or other obstacle preventing movement or access",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band6"
+    },
+    {
+      "word": "base",
+      "definition": "the lowest part or edge of something, especially one on which it rests",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band4"
+    },
+    {
+      "word": "basic",
+      "definition": "forming an essential foundation; fundamental",
+      "category": "general",
+      "frequency": "high",
+      "level": "band3"
+    },
+    {
+      "word": "basis",
+      "definition": "the underlying support or foundation for an idea or action",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band6"
+    },
+    {
+      "word": "battle",
+      "definition": "a sustained fight between large organized armed forces",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band4"
+    },
+    {
+      "word": "beauty",
+      "definition": "a combination of qualities that pleases the senses",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band3"
+    },
+    {
+      "word": "become",
+      "definition": "to grow to be; come to be",
+      "category": "general",
+      "frequency": "high",
+      "level": "band2"
+    },
+    {
+      "word": "before",
+      "definition": "earlier than the time or event mentioned",
+      "category": "general",
+      "frequency": "high",
+      "level": "band1"
+    },
+    {
+      "word": "behave",
+      "definition": "to act in a particular way",
+      "category": "general",
+      "frequency": "high",
+      "level": "band3"
+    },
+    {
+      "word": "behavior",
+      "definition": "the way in which someone conducts themselves",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band5"
+    },
+    {
+      "word": "believe",
+      "definition": "to accept that something is true, especially without proof",
+      "category": "general",
+      "frequency": "high",
+      "level": "band3"
+    },
+    {
+      "word": "benefit",
+      "definition": "a helpful or good effect, or something intended to help",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band5"
+    },
+    {
+      "word": "best",
+      "definition": "of the highest quality; most excellent",
+      "category": "general",
+      "frequency": "high",
+      "level": "band2"
+    },
+    {
+      "word": "better",
+      "definition": "more excellent or effective than someone or something else",
+      "category": "general",
+      "frequency": "high",
+      "level": "band2"
+    },
+    {
+      "word": "beyond",
+      "definition": "on the further side of",
+      "category": "general",
+      "frequency": "high",
+      "level": "band4"
+    },
+    {
+      "word": "biology",
+      "definition": "the study of living organisms",
+      "category": "academic",
+      "frequency": "medium",
+      "level": "band5"
+    },
+    {
+      "word": "birth",
+      "definition": "the emergence of a baby or other young from the body of its mother",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band3"
+    },
+    {
+      "word": "bitter",
+      "definition": "having a sharp, pungent taste or smell",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band4"
+    },
+    {
+      "word": "black",
+      "definition": "of the darkest color owing to the absence of or complete absorption of light",
+      "category": "general",
+      "frequency": "high",
+      "level": "band1"
+    },
+    {
+      "word": "blade",
+      "definition": "the flat cutting edge of a knife, razor, or other tool",
+      "category": "general",
+      "frequency": "low",
+      "level": "band4"
+    },
+    {
+      "word": "blame",
+      "definition": "to assign responsibility for a fault or wrong",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band4"
+    },
+    {
+      "word": "blank",
+      "definition": "not written or printed on; having no marks or information",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band4"
+    },
+    {
+      "word": "blanket",
+      "definition": "a large piece of woollen or other fabric used as a covering for warmth",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band3"
+    },
+    {
+      "word": "bleed",
+      "definition": "to lose blood from the body as a result of injury or illness",
+      "category": "general",
+      "frequency": "low",
+      "level": "band4"
+    },
+    {
+      "word": "blessing",
+      "definition": "a divine favor or benefit",
+      "category": "general",
+      "frequency": "low",
+      "level": "band5"
+    },
+    {
+      "word": "blind",
+      "definition": "unable to see; lacking sight",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band3"
+    },
+    {
+      "word": "block",
+      "definition": "a large solid piece of hard material",
+      "category": "general",
+      "frequency": "high",
+      "level": "band3"
+    },
+    {
+      "word": "blood",
+      "definition": "the red liquid that circulates in the arteries and veins",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band3"
+    },
+    {
+      "word": "bloom",
+      "definition": "to produce flowers; be in flower",
+      "category": "general",
+      "frequency": "low",
+      "level": "band4"
+    },
+    {
+      "word": "blow",
+      "definition": "to send out air from the mouth",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band3"
+    },
+    {
+      "word": "blue",
+      "definition": "of a color intermediate between green and violet",
+      "category": "general",
+      "frequency": "high",
+      "level": "band1"
+    },
+    {
+      "word": "board",
+      "definition": "a flat piece of wood or other hard material",
+      "category": "general",
+      "frequency": "high",
+      "level": "band3"
+    },
+    {
+      "word": "boast",
+      "definition": "to talk about oneself with excessive pride",
+      "category": "general",
+      "frequency": "low",
+      "level": "band5"
+    },
+    {
+      "word": "boat",
+      "definition": "a small vessel for traveling over water",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band3"
+    },
+    {
+      "word": "body",
+      "definition": "the physical structure of a human or animal",
+      "category": "general",
+      "frequency": "high",
+      "level": "band2"
+    },
+    {
+      "word": "boil",
+      "definition": "to heat a liquid until it bubbles and turns to vapor",
+      "category": "general",
+      "frequency": "low",
+      "level": "band3"
+    },
+    {
+      "word": "bold",
+      "definition": "having or showing courage or determination",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band4"
+    },
+    {
+      "word": "bomb",
+      "definition": "a container filled with explosive material",
+      "category": "general",
+      "frequency": "low",
+      "level": "band4"
+    },
+    {
+      "word": "bond",
+      "definition": "a force or feeling that unites people",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band6"
+    },
+    {
+      "word": "bone",
+      "definition": "the hard rigid connective tissue forming the skeleton",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band3"
+    },
+    {
+      "word": "bonus",
+      "definition": "a sum of money added to wages, salary, or payment",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band5"
+    },
+    {
+      "word": "book",
+      "definition": "a written or printed work consisting of pages glued together",
+      "category": "general",
+      "frequency": "high",
+      "level": "band2"
+    },
+    {
+      "word": "boost",
+      "definition": "to increase or improve the strength or quantity of something",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band5"
+    },
+    {
+      "word": "border",
+      "definition": "a line separating two areas of land",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band4"
+    },
+    {
+      "word": "bored",
+      "definition": "feeling weary because one is unoccupied or lacks interest",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band3"
+    },
+    {
+      "word": "borrow",
+      "definition": "to take and use something belonging to someone else",
+      "category": "general",
+      "frequency": "high",
+      "level": "band3"
+    },
+    {
+      "word": "boss",
+      "definition": "a person in charge of others; a manager",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band3"
+    },
+    {
+      "word": "both",
+      "definition": "the one as well as the other",
+      "category": "general",
+      "frequency": "high",
+      "level": "band1"
+    },
+    {
+      "word": "bother",
+      "definition": "to take the trouble to do something",
+      "category": "general",
+      "frequency": "high",
+      "level": "band3"
+    },
+    {
+      "word": "bottle",
+      "definition": "a container, typically made of glass or plastic, with a narrow neck",
+      "category": "general",
+      "frequency": "high",
+      "level": "band2"
+    },
+    {
+      "word": "bottom",
+      "definition": "the lowest part or edge of something",
+      "category": "general",
+      "frequency": "high",
+      "level": "band2"
+    },
+    {
+      "word": "bounce",
+      "definition": "to spring back or rebound after hitting a surface",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band3"
+    },
+    {
+      "word": "bound",
+      "definition": "tied; tied up",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band4"
+    },
+    {
+      "word": "boundary",
+      "definition": "a line that marks the limits of an area",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band6"
+    },
+    {
+      "word": "bowl",
+      "definition": "a round, deep dish or basin used for food or liquid",
+      "category": "general",
+      "frequency": "high",
+      "level": "band2"
+    },
+    {
+      "word": "box",
+      "definition": "a container with a flat base and sides, typically square or rectangular",
+      "category": "general",
+      "frequency": "high",
+      "level": "band2"
+    },
+    {
+      "word": "boy",
+      "definition": "a male child or young man",
+      "category": "general",
+      "frequency": "high",
+      "level": "band1"
+    },
+    {
+      "word": "brain",
+      "definition": "an organ of soft nervous tissue contained in the skull",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band3"
+    },
+    {
+      "word": "branch",
+      "definition": "a part of a tree that grows out from the trunk or larger branches",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band3"
+    },
+    {
+      "word": "brand",
+      "definition": "a type of product made by a particular company under a particular name",
+      "category": "general",
+      "frequency": "high",
+      "level": "band4"
+    },
+    {
+      "word": "brave",
+      "definition": "ready to face and endure danger or pain",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band4"
+    },
+    {
+      "word": "bread",
+      "definition": "food made of flour, water, and yeast mixed together and baked",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band2"
+    },
+    {
+      "word": "break",
+      "definition": "to separate into pieces as a result of a blow, shock, or strain",
+      "category": "general",
+      "frequency": "high",
+      "level": "band2"
+    },
+    {
+      "word": "breakfast",
+      "definition": "the first meal of the day",
+      "category": "general",
+      "frequency": "high",
+      "level": "band2"
+    },
+    {
+      "word": "breath",
+      "definition": "air taken into or expelled from the lungs",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band3"
+    },
+    {
+      "word": "bridge",
+      "definition": "a structure carrying a road, path, or railway across a river or road",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band3"
+    },
+    {
+      "word": "brief",
+      "definition": "of short duration; lasting for a limited time",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band5"
+    },
+    {
+      "word": "bright",
+      "definition": "giving out or reflecting a lot of light; luminous",
+      "category": "general",
+      "frequency": "high",
+      "level": "band2"
+    },
+    {
+      "word": "brilliant",
+      "definition": "exceptionally clever or talented",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band4"
+    },
+    {
+      "word": "bring",
+      "definition": "to carry or convey someone or something to a place",
+      "category": "general",
+      "frequency": "high",
+      "level": "band2"
+    },
+    {
+      "word": "broad",
+      "definition": "having a wide distance from side to side",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band5"
+    },
+    {
+      "word": "broadcast",
+      "definition": "to transmit a program or some information by radio or television",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band5"
+    },
+    {
+      "word": "broken",
+      "definition": "having been fractured or damaged and no longer in one piece",
+      "category": "general",
+      "frequency": "high",
+      "level": "band2"
+    },
+    {
+      "word": "brother",
+      "definition": "a male sibling",
+      "category": "general",
+      "frequency": "high",
+      "level": "band1"
+    },
+    {
+      "word": "brown",
+      "definition": "of a color produced by mixing red, yellow, and blue, as of dark wood",
+      "category": "general",
+      "frequency": "high",
+      "level": "band1"
+    },
+    {
+      "word": "brush",
+      "definition": "an implement with a handle and a block of bristles",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band3"
+    },
+    {
+      "word": "budget",
+      "definition": "an estimate of income and expenditure for a set period of time",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band6"
+    },
+    {
+      "word": "build",
+      "definition": "to construct something by putting parts or material together",
+      "category": "general",
+      "frequency": "high",
+      "level": "band2"
+    },
+    {
+      "word": "building",
+      "definition": "a structure with walls and a roof",
+      "category": "general",
+      "frequency": "high",
+      "level": "band2"
+    },
+    {
+      "word": "bulb",
+      "definition": "a glass vessel containing a filament for use as an electric light",
+      "category": "general",
+      "frequency": "low",
+      "level": "band3"
+    },
+    {
+      "word": "bulk",
+      "definition": "the greater part or majority of something",
+      "category": "academic",
+      "frequency": "medium",
+      "level": "band7"
+    },
+    {
+      "word": "bullet",
+      "definition": "a projectile fired from a gun",
+      "category": "general",
+      "frequency": "low",
+      "level": "band4"
+    },
+    {
+      "word": "bundle",
+      "definition": "a number of things held together",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band4"
+    },
+    {
+      "word": "burden",
+      "definition": "a heavy load, especially one that is difficult to carry",
+      "category": "academic",
+      "frequency": "medium",
+      "level": "band6"
+    },
+    {
+      "word": "bureau",
+      "definition": "a government department or a company that provides a service",
+      "category": "academic",
+      "frequency": "medium",
+      "level": "band7"
+    },
+    {
+      "word": "burial",
+      "definition": "the act or ceremony of burying a dead person",
+      "category": "general",
+      "frequency": "low",
+      "level": "band5"
+    },
+    {
+      "word": "burn",
+      "definition": "to destroy or be destroyed by fire",
+      "category": "general",
+      "frequency": "high",
+      "level": "band2"
+    },
+    {
+      "word": "burst",
+      "definition": "to break suddenly and violently apart",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band4"
+    },
+    {
+      "word": "bury",
+      "definition": "to place a dead body in the earth, a tomb, or the sea",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band3"
+    },
+    {
+      "word": "bus",
+      "definition": "a large motor vehicle for carrying passengers",
+      "category": "general",
+      "frequency": "high",
+      "level": "band2"
+    },
+    {
+      "word": "business",
+      "definition": "a person's regular occupation, profession, or trade",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band3"
+    },
+    {
+      "word": "busy",
+      "definition": "having a great deal to do; occupied",
+      "category": "general",
+      "frequency": "high",
+      "level": "band2"
+    },
+    {
+      "word": "button",
+      "definition": "a small, typically round object sewn on to a garment",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band3"
+    },
+    {
+      "word": "buy",
+      "definition": "to acquire in exchange for payment",
+      "category": "general",
+      "frequency": "high",
+      "level": "band2"
+    },
+    {
+      "word": "cabin",
+      "definition": "a small wooden house or shelter",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band4"
+    },
+    {
+      "word": "cable",
+      "definition": "a thick heavy rope made of fiber or wire",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band4"
+    },
+    {
+      "word": "cafe",
+      "definition": "a small restaurant selling light meals and drinks",
+      "category": "general",
+      "frequency": "high",
+      "level": "band3"
+    },
+    {
+      "word": "cage",
+      "definition": "a structure of bars or wire in which birds or animals are confined",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band3"
+    },
+    {
+      "word": "calculate",
+      "definition": "to determine the amount or number of something mathematically",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band5"
+    },
+    {
+      "word": "calendar",
+      "definition": "a chart or series of pages showing the days, weeks, and months of a year",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band4"
+    },
+    {
+      "word": "call",
+      "definition": "to cry out or shout",
+      "category": "general",
+      "frequency": "high",
+      "level": "band2"
+    },
+    {
+      "word": "calm",
+      "definition": "not showing or feeling nervousness, anger, or other emotions",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band4"
+    },
+    {
+      "word": "camera",
+      "definition": "a device for recording visual images in the form of photographs",
+      "category": "general",
+      "frequency": "high",
+      "level": "band3"
+    },
+    {
+      "word": "camp",
+      "definition": "a place where tents or temporary shelters are set up",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band3"
+    },
+    {
+      "word": "campaign",
+      "definition": "an organized course of action to achieve a goal",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band6"
+    },
+    {
+      "word": "campus",
+      "definition": "the grounds and buildings of a university or college",
+      "category": "general",
+      "frequency": "high",
+      "level": "band4"
+    },
+    {
+      "word": "can",
+      "definition": "to be able to do something",
+      "category": "general",
+      "frequency": "high",
+      "level": "band1"
+    },
+    {
+      "word": "canal",
+      "definition": "an artificial waterway constructed to allow the passage of boats",
+      "category": "general",
+      "frequency": "low",
+      "level": "band5"
+    },
+    {
+      "word": "cancel",
+      "definition": "to decide that an organized event will not take place",
+      "category": "general",
+      "frequency": "high",
+      "level": "band4"
+    },
+    {
+      "word": "cancer",
+      "definition": "a disease caused by an uncontrolled division of abnormal cells",
+      "category": "academic",
+      "frequency": "medium",
+      "level": "band5"
+    },
+    {
+      "word": "candidate",
+      "definition": "a person running in an election or applying for a job",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band6"
+    },
+    {
+      "word": "candle",
+      "definition": "a cylinder or block of wax with a central wick",
+      "category": "general",
+      "frequency": "low",
+      "level": "band3"
+    },
+    {
+      "word": "canvas",
+      "definition": "a heavy coarse textured cloth used for making tents",
+      "category": "general",
+      "frequency": "low",
+      "level": "band5"
+    },
+    {
+      "word": "capable",
+      "definition": "having the ability, fitness, or quality for something",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band6"
+    },
+    {
+      "word": "capacity",
+      "definition": "the maximum amount that something can contain",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band6"
+    },
+    {
+      "word": "capital",
+      "definition": "the most important city or town of a country",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band5"
+    },
+    {
+      "word": "captain",
+      "definition": "the person in command of a ship, aircraft, or sports team",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band4"
+    },
+    {
+      "word": "capture",
+      "definition": "to take into one's possession or control by force",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band6"
+    },
+    {
+      "word": "car",
+      "definition": "a four-wheeled road vehicle powered by an internal combustion engine",
+      "category": "general",
+      "frequency": "high",
+      "level": "band1"
+    },
+    {
+      "word": "carbon",
+      "definition": "the chemical element of atomic number 6",
+      "category": "academic",
+      "frequency": "medium",
+      "level": "band6"
+    },
+    {
+      "word": "card",
+      "definition": "a piece of thick, stiff paper or thin cardboard",
+      "category": "general",
+      "frequency": "high",
+      "level": "band2"
+    },
+    {
+      "word": "care",
+      "definition": "the provision of what is necessary for health, welfare, and protection",
+      "category": "general",
+      "frequency": "high",
+      "level": "band2"
+    },
+    {
+      "word": "career",
+      "definition": "an occupation undertaken for a significant period of a person's life",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band4"
+    },
+    {
+      "word": "careful",
+      "definition": "taking care or caution; prudent",
+      "category": "general",
+      "frequency": "high",
+      "level": "band3"
+    },
+    {
+      "word": "careless",
+      "definition": "not giving sufficient attention or thought to avoiding harm or errors",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band4"
+    },
+    {
+      "word": "cargo",
+      "definition": "goods carried on a ship, aircraft, or truck",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band5"
+    },
+    {
+      "word": "carpet",
+      "definition": "a floor covering made from thick woven fabric",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band3"
+    },
+    {
+      "word": "carry",
+      "definition": "to support and move someone or something from one place to another",
+      "category": "general",
+      "frequency": "high",
+      "level": "band2"
+    },
+    {
+      "word": "cart",
+      "definition": "a strong open vehicle with two or four wheels",
+      "category": "general",
+      "frequency": "low",
+      "level": "band3"
+    },
+    {
+      "word": "case",
+      "definition": "an instance of a particular situation; an example of something occurring",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band4"
+    },
+    {
+      "word": "cash",
+      "definition": "money in coins or notes, as distinct from checks or other forms of payment",
+      "category": "general",
+      "frequency": "high",
+      "level": "band3"
+    },
+    {
+      "word": "cast",
+      "definition": "to throw something forcefully in a specified direction",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band4"
+    },
+    {
+      "word": "castle",
+      "definition": "a large fortified building or set of buildings",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band3"
+    },
+    {
+      "word": "casual",
+      "definition": "relaxed and unconcerned; showing little interest or effort",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band5"
+    },
+    {
+      "word": "cat",
+      "definition": "a small domesticated carnivorous mammal",
+      "category": "general",
+      "frequency": "high",
+      "level": "band1"
+    },
+    {
+      "word": "catalog",
+      "definition": "a complete list of items, typically one in alphabetical order",
+      "category": "academic",
+      "frequency": "medium",
+      "level": "band6"
+    },
+    {
+      "word": "catch",
+      "definition": "to intercept and hold a thrown, propelled, or falling object",
+      "category": "general",
+      "frequency": "high",
+      "level": "band2"
+    },
+    {
+      "word": "category",
+      "definition": "a class or division of people or things regarded as having particular characteristics",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band6"
+    },
+    {
+      "word": "cattle",
+      "definition": "large ungulates with horns and cloven hoofs",
+      "category": "general",
+      "frequency": "low",
+      "level": "band4"
+    },
+    {
+      "word": "caught",
+      "definition": "past tense of catch",
+      "category": "general",
+      "frequency": "high",
+      "level": "band2"
+    },
+    {
+      "word": "cause",
+      "definition": "a person or thing that gives rise to an action, phenomenon, or condition",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band4"
+    },
+    {
+      "word": "cave",
+      "definition": "a large underground chamber",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band3"
+    },
+    {
+      "word": "cease",
+      "definition": "to bring or come to an end",
+      "category": "academic",
+      "frequency": "medium",
+      "level": "band6"
+    },
+    {
+      "word": "ceiling",
+      "definition": "the upper interior surface of a room",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band4"
+    },
+    {
+      "word": "celebrate",
+      "definition": "to acknowledge a significant or happy day, event, or occasion",
+      "category": "general",
+      "frequency": "high",
+      "level": "band3"
+    },
+    {
+      "word": "celebration",
+      "definition": "the action of acknowledging a significant or happy day, event, or occasion",
+      "category": "general",
+      "frequency": "high",
+      "level": "band4"
+    },
+    {
+      "word": "cell",
+      "definition": "the basic structural, functional, and biological unit of all organisms",
+      "category": "academic",
+      "frequency": "medium",
+      "level": "band5"
+    },
+    {
+      "word": "centimeter",
+      "definition": "a metric unit of measurement that is equal to 10 millimeters or one hundredth of a meter",
+      "category": "academic",
+      "frequency": "low",
+      "level": "band6"
+    },
+    {
+      "word": "central",
+      "definition": "in the center; at or forming the center",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band5"
+    },
+    {
+      "word": "centre",
+      "definition": "the point equally distant from every point on the circumference of a circle",
+      "category": "general",
+      "frequency": "high",
+      "level": "band4"
+    },
+    {
+      "word": "century",
+      "definition": "a period of one hundred years",
+      "category": "general",
+      "frequency": "high",
+      "level": "band4"
+    },
+    {
+      "word": "ceremony",
+      "definition": "a formal religious or public occasion",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band4"
+    },
+    {
+      "word": "certain",
+      "definition": "known for sure; definite",
+      "category": "general",
+      "frequency": "high",
+      "level": "band3"
+    },
+    {
+      "word": "certificate",
+      "definition": "an official document attesting a certain fact",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band6"
+    },
+    {
+      "word": "chain",
+      "definition": "a series of metal rings fitted into one another to make a flexible cable",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band3"
+    },
+    {
+      "word": "chair",
+      "definition": "a separate seat for one person, typically with a back and four legs",
+      "category": "general",
+      "frequency": "high",
+      "level": "band2"
+    },
+    {
+      "word": "chairman",
+      "definition": "the person in charge of a meeting or an organization",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band5"
+    },
+    {
+      "word": "chalk",
+      "definition": "a white soft earthy limestone formed from the skeletal remains of marine creatures",
+      "category": "general",
+      "frequency": "low",
+      "level": "band3"
+    },
+    {
+      "word": "challenge",
+      "definition": "a task or situation that tests someone's abilities",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band5"
+    },
+    {
+      "word": "champion",
+      "definition": "a person who has defeated or surpassed all others in a competition",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band4"
+    },
+    {
+      "word": "chance",
+      "definition": "a possibility of something happening",
+      "category": "general",
+      "frequency": "high",
+      "level": "band3"
+    },
+    {
+      "word": "change",
+      "definition": "to make or become different",
+      "category": "general",
+      "frequency": "high",
+      "level": "band2"
+    },
+    {
+      "word": "channel",
+      "definition": "a television service with a specific frequency",
+      "category": "general",
+      "frequency": "high",
+      "level": "band4"
+    },
+    {
+      "word": "chaos",
+      "definition": "complete disorder and confusion",
+      "category": "academic",
+      "frequency": "medium",
+      "level": "band6"
+    },
+    {
+      "word": "chapter",
+      "definition": "a main division of a book",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band4"
+    },
+    {
+      "word": "character",
+      "definition": "a person in a novel, film, or play",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band5"
+    },
+    {
+      "word": "characteristic",
+      "definition": "a feature or quality belonging to something and making it identifiable",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band6"
+    },
+    {
+      "word": "charge",
+      "definition": "to ask a price for goods or services",
+      "category": "general",
+      "frequency": "high",
+      "level": "band3"
+    },
+    {
+      "word": "chart",
+      "definition": "a sheet of information in the form of a table or graph",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band5"
+    },
+    {
+      "word": "chase",
+      "definition": "to pursue in order to catch or catch up with someone or something",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band3"
+    },
+    {
+      "word": "chat",
+      "definition": "to talk in a friendly and informal way",
+      "category": "general",
+      "frequency": "high",
+      "level": "band3"
+    },
+    {
+      "word": "cheap",
+      "definition": "costing little; relatively low in price",
+      "category": "general",
+      "frequency": "high",
+      "level": "band2"
+    },
+    {
+      "word": "check",
+      "definition": "to examine something in order to determine its accuracy, quality, or condition",
+      "category": "general",
+      "frequency": "high",
+      "level": "band2"
+    },
+    {
+      "word": "cheer",
+      "definition": "to give a shout of encouragement or joy",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band3"
+    },
+    {
+      "word": "cheese",
+      "definition": "a solid food made from the pressed curds of milk",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band2"
+    },
+    {
+      "word": "chemical",
+      "definition": "a compound or substance chemically synthesized",
+      "category": "academic",
+      "frequency": "high",
+      "level": "band6"
+    },
+    {
+      "word": "chemist",
+      "definition": "a person engaged in chemical research or experiments",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band5"
+    },
+    {
+      "word": "chest",
+      "definition": "the front surface of the body between the neck and the abdomen",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band3"
+    },
+    {
+      "word": "chew",
+      "definition": "to crush food with teeth",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band3"
+    },
+    {
+      "word": "chicken",
+      "definition": "a domestic bird kept for its eggs or meat",
+      "category": "general",
+      "frequency": "high",
+      "level": "band2"
+    },
+    {
+      "word": "chief",
+      "definition": "a leader or ruler of a people or clan",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band4"
+    },
+    {
+      "word": "child",
+      "definition": "a young human being below the age of puberty",
+      "category": "general",
+      "frequency": "high",
+      "level": "band1"
+    },
+    {
+      "word": "childhood",
+      "definition": "the state or time of being a child",
+      "category": "general",
+      "frequency": "high",
+      "level": "band3"
+    },
+    {
+      "word": "chip",
+      "definition": "a very small area of semiconducting material",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band4"
+    },
+    {
+      "word": "choice",
+      "definition": "an act of selecting or making a decision when faced with two or more possibilities",
+      "category": "general",
+      "frequency": "high",
+      "level": "band3"
+    },
+    {
+      "word": "choose",
+      "definition": "to decide what you want from a selection of things",
+      "category": "general",
+      "frequency": "high",
+      "level": "band2"
+    },
+    {
+      "word": "church",
+      "definition": "a building used for Christian religious activities",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band3"
+    },
+    {
+      "word": "cigarette",
+      "definition": "a thin cylinder of finely cut tobacco rolled in paper for smoking",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band4"
+    },
+    {
+      "word": "cinema",
+      "definition": "a theater where films are shown for public entertainment",
+      "category": "general",
+      "frequency": "medium",
+      "level": "band3"
+    },
+    {
+      "word": "circle",
+      "definition": "a round plane figure whose boundary consists of points equidistant from a fixed point",
+      "category": "general",
+      "frequency": "high",
+      "level": "band4"
+    }
+   ]
+}
