@@ -44,6 +44,7 @@ interface Session {
   questions: string;
   transcript: string | null;
   keywords: string | null;
+  duration?: number; // 音频时长（秒）
   status: string;
   created_at: string;
 }

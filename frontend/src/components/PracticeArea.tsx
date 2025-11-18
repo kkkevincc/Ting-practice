@@ -1,21 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import api from '../services/api';
 
-interface Word {
-  id: number;
-  text: string;
-  clicked: boolean;
-}
-
 interface ExerciseOption {
   word: string;
   isCorrect: boolean;
+  timeSegment?: number; // 时间段索引
 }
 
 interface ExerciseData {
   options: ExerciseOption[];
   transcript: string;
   keywords: string[];
+  duration?: number; // 音频时长（秒）
   status: string;
 }
 
@@ -25,7 +21,7 @@ interface PracticeAreaProps {
   onPracticeComplete: (results: any) => void;
 }
 
-const PracticeArea: React.FC<PracticeAreaProps> = ({ sessionId, onWordClick, onPracticeComplete }) => {
+const PracticeArea: React.FC<PracticeAreaProps> = ({ sessionId, onPracticeComplete }) => {
   const [exerciseData, setExerciseData] = useState<ExerciseData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -34,6 +30,8 @@ const PracticeArea: React.FC<PracticeAreaProps> = ({ sessionId, onWordClick, onP
 
   useEffect(() => {
     fetchExerciseData();
+    // 记录练习开始时间
+    (window as any).practiceStartTime = Date.now();
   }, [sessionId]);
 
   const fetchExerciseData = async () => {
@@ -50,7 +48,7 @@ const PracticeArea: React.FC<PracticeAreaProps> = ({ sessionId, onWordClick, onP
     }
   };
 
-  const handleOptionClick = (word: string, isCorrect: boolean) => {
+  const handleOptionClick = (word: string) => {
     const newSelectedAnswers = new Set(selectedAnswers);
     if (selectedAnswers.has(word)) {
       newSelectedAnswers.delete(word);
@@ -60,7 +58,7 @@ const PracticeArea: React.FC<PracticeAreaProps> = ({ sessionId, onWordClick, onP
     setSelectedAnswers(newSelectedAnswers);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (!exerciseData) return;
     
     const results = exerciseData.options.map(option => ({
@@ -73,7 +71,25 @@ const PracticeArea: React.FC<PracticeAreaProps> = ({ sessionId, onWordClick, onP
     const userCorrectAnswers = results.filter(r => r.userAnswered && r.isCorrect).length;
     const accuracy = correctAnswers > 0 ? (userCorrectAnswers / correctAnswers) * 100 : 0;
     
+    // 计算练习时长（从组件加载开始计时）
+    const timeSpent = Math.floor((Date.now() - (window as any).practiceStartTime) / 1000);
+    
     setShowResults(true);
+    
+    // 保存练习记录到后端
+    try {
+      const clickedWordsArray = Array.from(selectedAnswers);
+      await api.post('/practice', {
+        sessionId,
+        clickedWords: clickedWordsArray,
+        totalWords: exerciseData.options.length,
+        correctAnswers: correctAnswers,
+        timeSpent: timeSpent || 0
+      });
+    } catch (error) {
+      console.error('保存练习记录失败:', error);
+    }
+    
     onPracticeComplete({
       results,
       accuracy,
@@ -143,6 +159,51 @@ const PracticeArea: React.FC<PracticeAreaProps> = ({ sessionId, onWordClick, onP
   const correctCount = exerciseData.options.filter(option => option.isCorrect).length;
   const progress = selectedAnswers.size / correctCount * 100;
 
+  // 按时间段分组选项（如果有音频时长）
+  const groupOptionsByTimeSegment = () => {
+    if (!exerciseData.duration || exerciseData.duration <= 0) {
+      return null; // 没有时长信息，不分组
+    }
+
+    // 从选项中获取时间段信息
+    const segments = new Set<number>();
+    exerciseData.options.forEach(option => {
+      if (option.timeSegment !== undefined && option.timeSegment >= 0) {
+        segments.add(option.timeSegment);
+      }
+    });
+
+    if (segments.size === 0) {
+      return null; // 没有时间段信息，不分组
+    }
+
+    // 计算时间段数量和每段时长
+    const numSegments = Math.max(...Array.from(segments)) + 1;
+    const segmentDuration = Math.ceil(exerciseData.duration / numSegments);
+    
+    const grouped: { [key: number]: ExerciseOption[] } = {};
+
+    // 初始化所有时间段
+    for (let i = 0; i < numSegments; i++) {
+      grouped[i] = [];
+    }
+
+    // 将选项分配到对应的时间段
+    exerciseData.options.forEach(option => {
+      const segment = option.timeSegment ?? -1;
+      if (segment >= 0 && segment < numSegments) {
+        grouped[segment].push(option);
+      } else if (segment === -1) {
+        // 未分配时间段的选项，分配到第一个时间段
+        grouped[0].push(option);
+      }
+    });
+
+    return { grouped, numSegments, segmentDuration };
+  };
+
+  const timeGrouping = groupOptionsByTimeSegment();
+
   return (
     <div className="bg-white rounded-2xl border border-gray-100 p-8 shadow-sm hover:shadow-md transition-all duration-300">
       {/* Header */}
@@ -205,9 +266,154 @@ const PracticeArea: React.FC<PracticeAreaProps> = ({ sessionId, onWordClick, onP
         </div>
       </div>
 
-      {/* Exercise Options */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 mb-8">
-        {exerciseData.options.map((option, index) => {
+      {/* Time Axis (if duration available) */}
+      {timeGrouping && exerciseData.duration && (
+        <div className="mb-6 p-4 bg-blue-50 rounded-xl border border-blue-200">
+          <div className="flex items-center justify-between mb-3">
+            <h3 className="text-sm font-semibold text-blue-900">时间轴</h3>
+            <span className="text-xs text-blue-600">总时长: {Math.floor(exerciseData.duration / 60)}分{Math.floor(exerciseData.duration % 60)}秒</span>
+          </div>
+          <div className="flex items-center space-x-1 overflow-x-auto pb-2">
+            {Array.from({ length: timeGrouping.numSegments }, (_, i) => {
+              const segmentOptions = timeGrouping.grouped[i] || [];
+              const correctInSegment = segmentOptions.filter(opt => opt.isCorrect).length;
+              const selectedInSegment = segmentOptions.filter(opt => selectedAnswers.has(opt.word)).length;
+              const segmentStart = i * timeGrouping.segmentDuration;
+              
+              return (
+                <div
+                  key={i}
+                  className="flex-shrink-0 flex flex-col items-center"
+                  style={{ width: `${100 / timeGrouping.numSegments}%` }}
+                >
+                  <div className={`w-full h-2 rounded mb-1 ${
+                    selectedInSegment > 0 
+                      ? correctInSegment === selectedInSegment 
+                        ? 'bg-green-500' 
+                        : 'bg-yellow-500'
+                      : 'bg-gray-300'
+                  }`}></div>
+                  <div className="text-xs text-gray-600 text-center">
+                    {Math.floor(segmentStart / 60)}:{String(Math.floor(segmentStart % 60)).padStart(2, '0')}
+                  </div>
+                  {correctInSegment > 0 && (
+                    <div className="text-xs font-semibold text-blue-600 mt-1">
+                      {correctInSegment}个
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {/* Exercise Options - Grouped by Time Segment */}
+      {timeGrouping ? (
+        <div className="space-y-6 mb-8">
+          {Array.from({ length: timeGrouping.numSegments }, (_, segmentIndex) => {
+            const segmentOptions = timeGrouping.grouped[segmentIndex] || [];
+            if (segmentOptions.length === 0) return null;
+
+            const segmentStart = segmentIndex * timeGrouping.segmentDuration;
+            const segmentEnd = Math.min((segmentIndex + 1) * timeGrouping.segmentDuration, exerciseData.duration!);
+
+            return (
+              <div key={segmentIndex} className="border border-gray-200 rounded-xl p-4 bg-gray-50">
+                <div className="flex items-center justify-between mb-4">
+                  <h4 className="text-sm font-semibold text-gray-700">
+                    时间段 {segmentIndex + 1}: {Math.floor(segmentStart / 60)}:{String(Math.floor(segmentStart % 60)).padStart(2, '0')} - {Math.floor(segmentEnd / 60)}:{String(Math.floor(segmentEnd % 60)).padStart(2, '0')}
+                  </h4>
+                  <span className="text-xs text-gray-500">
+                    {segmentOptions.filter(opt => opt.isCorrect).length} 个正确答案
+                  </span>
+                </div>
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3">
+                  {segmentOptions.map((option, index) => {
+                    const isSelected = selectedAnswers.has(option.word);
+                    const isCorrect = option.isCorrect;
+                    const showResult = showResults;
+                    
+                    let buttonClass = 'group relative px-4 py-3 rounded-xl border-2 transition-all duration-200 ease-out font-medium text-sm md:text-base focus:outline-none focus:ring-4 focus:ring-opacity-50 transform hover:scale-105 active:scale-95 ';
+                    
+                    if (showResult) {
+                      if (isCorrect && isSelected) {
+                        buttonClass += 'bg-green-100 border-green-500 text-green-800';
+                      } else if (!isCorrect && isSelected) {
+                        buttonClass += 'bg-red-100 border-red-500 text-red-800';
+                      } else if (isCorrect && !isSelected) {
+                        buttonClass += 'bg-yellow-100 border-yellow-500 text-yellow-800';
+                      } else {
+                        buttonClass += 'bg-gray-100 border-gray-300 text-gray-600';
+                      }
+                    } else {
+                      if (isSelected) {
+                        buttonClass += 'bg-blue-500 text-white border-blue-500 shadow-lg';
+                      } else {
+                        buttonClass += 'bg-white text-gray-900 border-gray-200 hover:border-blue-300 hover:shadow-md';
+                      }
+                    }
+                    
+                    return (
+                      <button
+                        key={`${segmentIndex}-${index}`}
+                        onClick={() => !showResult && handleOptionClick(option.word)}
+                        disabled={showResult}
+                        className={buttonClass}
+                      >
+                        <span className="relative z-10">{option.word}</span>
+                        
+                        {!showResult && isSelected && (
+                          <div className="absolute top-1 right-1">
+                            <div className="w-3 h-3 bg-white rounded-full flex items-center justify-center">
+                              <svg className="w-2 h-2 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+                              </svg>
+                            </div>
+                          </div>
+                        )}
+                        
+                        {showResult && isCorrect && isSelected && (
+                          <div className="absolute top-1 right-1">
+                            <div className="w-3 h-3 bg-green-500 rounded-full flex items-center justify-center">
+                              <svg className="w-2 h-2 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+                              </svg>
+                            </div>
+                          </div>
+                        )}
+                        
+                        {showResult && !isCorrect && isSelected && (
+                          <div className="absolute top-1 right-1">
+                            <div className="w-3 h-3 bg-red-500 rounded-full flex items-center justify-center">
+                              <svg className="w-2 h-2 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd"/>
+                              </svg>
+                            </div>
+                          </div>
+                        )}
+                        
+                        {showResult && isCorrect && !isSelected && (
+                          <div className="absolute top-1 right-1">
+                            <div className="w-3 h-3 bg-yellow-500 rounded-full flex items-center justify-center">
+                              <svg className="w-2 h-2 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd"/>
+                              </svg>
+                            </div>
+                          </div>
+                        )}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      ) : (
+        /* Fallback: Original grid layout if no duration */
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 mb-8">
+          {exerciseData.options.map((option, index) => {
           const isSelected = selectedAnswers.has(option.word);
           const isCorrect = option.isCorrect;
           const showResult = showResults;
@@ -235,7 +441,7 @@ const PracticeArea: React.FC<PracticeAreaProps> = ({ sessionId, onWordClick, onP
           return (
             <button
               key={index}
-              onClick={() => !showResult && handleOptionClick(option.word, option.isCorrect)}
+              onClick={() => !showResult && handleOptionClick(option.word)}
               disabled={showResult}
               className={buttonClass}
             >
@@ -283,7 +489,8 @@ const PracticeArea: React.FC<PracticeAreaProps> = ({ sessionId, onWordClick, onP
             </button>
           );
         })}
-      </div>
+        </div>
+      )}
 
       {/* Results Summary */}
       {showResults && (
@@ -292,25 +499,25 @@ const PracticeArea: React.FC<PracticeAreaProps> = ({ sessionId, onWordClick, onP
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
             <div className="text-center">
               <div className="text-2xl font-bold text-green-600">
-                {exerciseData.options.filter((opt, idx) => opt.isCorrect && selectedAnswers.has(opt.word)).length}
+                {exerciseData.options.filter((opt) => opt.isCorrect && selectedAnswers.has(opt.word)).length}
               </div>
               <div className="text-gray-600">正确</div>
             </div>
             <div className="text-center">
               <div className="text-2xl font-bold text-red-600">
-                {exerciseData.options.filter((opt, idx) => !opt.isCorrect && selectedAnswers.has(opt.word)).length}
+                {exerciseData.options.filter((opt) => !opt.isCorrect && selectedAnswers.has(opt.word)).length}
               </div>
               <div className="text-gray-600">错误</div>
             </div>
             <div className="text-center">
               <div className="text-2xl font-bold text-yellow-600">
-                {exerciseData.options.filter((opt, idx) => opt.isCorrect && !selectedAnswers.has(opt.word)).length}
+                {exerciseData.options.filter((opt) => opt.isCorrect && !selectedAnswers.has(opt.word)).length}
               </div>
               <div className="text-gray-600">遗漏</div>
             </div>
             <div className="text-center">
               <div className="text-2xl font-bold text-blue-600">
-                {exerciseData.options.filter((opt, idx) => !opt.isCorrect && !selectedAnswers.has(opt.word)).length}
+                {exerciseData.options.filter((opt) => !opt.isCorrect && !selectedAnswers.has(opt.word)).length}
               </div>
               <div className="text-gray-600">未选择</div>
             </div>

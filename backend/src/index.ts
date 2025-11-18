@@ -252,6 +252,7 @@ app.post('/api/upload', optionalAuthenticate, (req, res, next) => {
         db.updateSession(session.id, {
           transcript,
           keywords: keywordsJson,
+          duration: duration, // 保存音频时长
           status: 'completed'
         });
 
@@ -306,6 +307,7 @@ app.get('/api/session/:sessionId', optionalAuthenticate, (req, res) => {
     questions: session.questions,
     transcript: session.transcript,
     keywords: session.keywords ? JSON.parse(session.keywords) : null,
+    duration: (session as any).duration || undefined, // 返回音频时长
     status: session.status,
     created_at: session.created_at
   });
@@ -375,19 +377,24 @@ app.get('/api/session/:sessionId/exercise', optionalAuthenticate, (req, res) => 
     return res.json({ options: [], status: 'no_keywords' });
   }
 
-  // 生成练习选项
-  const options = generateExerciseOptions(keywords, session.transcript);
+  // 获取音频时长（用于均匀分布选项）
+  const audioDuration = (session as any).duration || undefined;
+
+  // 生成练习选项（支持按时间段均匀分布）
+  const options = generateExerciseOptions(keywords, session.transcript, undefined, audioDuration);
   
   // 转换为前端期望的格式
   const frontendOptions = options.map(option => ({
     word: option.text,
-    isCorrect: option.isKeyword // 关键词就是正确答案
+    isCorrect: option.isKeyword, // 关键词就是正确答案
+    timeSegment: option.timeSegment // 时间段信息（可选）
   }));
 
   res.json({ 
     options: frontendOptions,
     transcript: session.transcript,
     keywords,
+    duration: audioDuration, // 返回音频时长
     status: 'completed'
   });
 });
@@ -411,28 +418,42 @@ app.get('/api/sessions', optionalAuthenticate, (req, res) => {
 // 保存练习记录
 app.post('/api/practice', optionalAuthenticate, (req, res) => {
   try {
-    const { sessionId, clickedWords, totalWords, timeSpent } = req.body;
+    const { sessionId, clickedWords, totalWords, correctAnswers, timeSpent } = req.body;
     const userId = (req as any).user.userId;
 
     if (!sessionId || !clickedWords || !totalWords) {
       return res.status(400).json({ error: '缺少必要参数' });
     }
 
-    // 计算准确率（这里简化处理，实际可以根据正确答案计算）
-    const accuracy = clickedWords.length / totalWords;
+    // 计算准确率：正确选择的词数 / 正确答案总数
+    // 如果提供了correctAnswers，使用它；否则使用totalWords作为分母
+    const correctCount = correctAnswers || totalWords;
+    const userCorrectCount = Array.isArray(clickedWords) 
+      ? clickedWords.filter((word: string) => {
+          // 需要从session中获取正确答案列表来验证
+          const session = db.findSessionById(sessionId);
+          if (session && session.keywords) {
+            const keywords = JSON.parse(session.keywords);
+            return keywords.includes(word.toLowerCase());
+          }
+          return false;
+        }).length
+      : 0;
+    const accuracy = correctCount > 0 ? (userCorrectCount / correctCount) * 100 : 0;
 
-    // 保存练习记录（仅对已登录用户）
+    // 保存练习记录（包括匿名用户）
+    // 匿名用户使用userId=0，可以通过sessionId查看记录
+    const record = db.createPracticeRecord({
+      session_id: sessionId,
+      user_id: userId || 0, // 允许匿名用户（userId=0）
+      clicked_words: JSON.stringify(clickedWords),
+      total_words: totalWords,
+      accuracy,
+      time_spent: timeSpent || 0
+    });
+
+    // 更新统计信息（仅对已登录用户）
     if (userId && userId !== 0) {
-      const record = db.createPracticeRecord({
-        session_id: sessionId,
-        user_id: userId,
-        clicked_words: JSON.stringify(clickedWords),
-        total_words: totalWords,
-        accuracy,
-        time_spent: timeSpent || 0
-      });
-
-      // 更新统计信息
       const stats = db.findStatisticsByUserId(userId);
       if (stats) {
         const newTotalPractices = stats.total_practices + 1;
@@ -448,7 +469,8 @@ app.post('/api/practice', optionalAuthenticate, (req, res) => {
     }
 
     res.json({ 
-      message: userId && userId !== 0 ? '练习记录保存成功' : '练习记录已记录（匿名用户不保存）'
+      message: '练习记录保存成功',
+      recordId: record.id
     });
   } catch (error: any) {
     res.status(500).json({ error: error.message });
@@ -458,7 +480,8 @@ app.post('/api/practice', optionalAuthenticate, (req, res) => {
 // 获取用户的练习记录
 app.get('/api/practice/records', optionalAuthenticate, (req, res) => {
   const userId = (req as any).user.userId;
-  const records = db.findPracticeRecordsByUserId(userId);
+  // 允许匿名用户（userId=0）查看自己的记录
+  const records = db.findPracticeRecordsByUserId(userId || 0);
 
   res.json({ records: records.map(r => ({
     ...r,
