@@ -3,6 +3,7 @@ import FileUpload from './components/FileUpload';
 import PracticeArea from './components/PracticeArea';
 import QuestionsDisplay from './components/QuestionsDisplay';
 import AudioPlayer from './components/AudioPlayer';
+import HistoryView from './components/HistoryView';
 import api from './services/api';
 
 interface SessionData {
@@ -23,6 +24,7 @@ function App() {
   const [isDarkMode, setIsDarkMode] = useState(true); // 默认深色模式
   const [userStats, setUserStats] = useState({ totalSessions: 0, totalTime: 0, accuracy: 0 });
   const [showKeywordsHint, setShowKeywordsHint] = useState(false); // 控制关键词提示的显示
+  const [showHistory, setShowHistory] = useState(false); // 控制历史记录的显示
 
   const handleUploadSuccess = (uploadResponse: SessionData) => {
     setSession(uploadResponse);
@@ -146,6 +148,20 @@ function App() {
                 </div>
               )}
               
+              <button
+                onClick={() => setShowHistory(true)}
+                className={`p-2 rounded-xl transition-all duration-200 hover:scale-110 ${
+                  isDarkMode 
+                    ? 'bg-gray-800/50 text-emerald-400 hover:bg-gray-700/50 border border-gray-700' 
+                    : 'bg-gray-100 text-blue-600 hover:bg-gray-200'
+                }`}
+                title="查看历史记录"
+              >
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd"/>
+                </svg>
+              </button>
+
               <button
                 onClick={() => setIsDarkMode(!isDarkMode)}
                 className={`p-2 rounded-xl transition-all duration-200 hover:scale-110 ${
@@ -470,6 +486,14 @@ function App() {
           </div>
         </div>
       </footer>
+
+      {/* History View Modal */}
+      {showHistory && (
+        <HistoryView 
+          isDarkMode={isDarkMode} 
+          onClose={() => setShowHistory(false)} 
+        />
+      )}
     </div>
   );
 }

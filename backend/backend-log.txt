@@ -1,0 +1,140 @@
+
+> listening-practice-backend@1.0.0 dev
+> tsx watch src/index.ts
+
+正在加载词汇库，路径: /Users/zhenkunchen/Desktop/听力练习项目/backend/src/data/ielts-vocabulary.json
+成功加载词汇库，共 330 个单词
+服务器运行在 http://localhost:3001
+可用API端点:
+  - POST /api/upload - 上传音频文件
+  - GET /api/sessions - 获取会话列表
+  - GET /api/session/:id - 获取会话详情
+  - GET /api/session/:id/words - 获取会话单词
+  - GET /api/session/:id/exercise - 获取练习选项
+  - POST /api/practice - 保存练习记录
+  - GET /api/vocabulary/stats - 获取词汇统计
+  - GET /api/vocabulary/practice/:sessionId - 生成词汇练习
+词汇库预加载完成，共 330 个单词
+4:01:41 PM [tsx] change in ./src/services/audioProcessor.ts Restarting...
+c正在加载词汇库，路径: /Users/zhenkunchen/Desktop/听力练习项目/backend/src/data/ielts-vocabulary.json
+成功加载词汇库，共 330 个单词
+服务器运行在 http://localhost:3001
+可用API端点:
+  - POST /api/upload - 上传音频文件
+  - GET /api/sessions - 获取会话列表
+  - GET /api/session/:id - 获取会话详情
+  - GET /api/session/:id/words - 获取会话单词
+  - GET /api/session/:id/exercise - 获取练习选项
+  - POST /api/practice - 保存练习记录
+  - GET /api/vocabulary/stats - 获取词汇统计
+  - GET /api/vocabulary/practice/:sessionId - 生成词汇练习
+词汇库预加载完成，共 330 个单词
+收到上传请求，文件字段: [ 'audio' ]
+请求体内容类型: multipart/form-data; boundary=----WebKitFormBoundaryYGZGwE03D9bN4q6e
+音频文件信息: {
+  originalname: 'é\x9F³é¢\x91æµ\x8Bè¯\x95Listening + Speaking.mp3',
+  mimetype: 'audio/mpeg',
+  size: 2987363,
+  path: '/Users/zhenkunchen/Desktop/听力练习项目/backend/uploads/audio/1763452968813-151700223.mp3'
+}
+会话创建成功，ID: 1763452968840-887372148
+处理音频文件: /Users/zhenkunchen/Desktop/听力练习项目/backend/uploads/audio/1763452968813-151700223.mp3, 大小: 2.85MB
+✅ API密钥已配置，开始调用SiliconFlow API...
+   API密钥: sk-fxjhwmg...
+🚀 正在调用SiliconFlow API进行音频转写...
+   📡 API端点: https://api.siliconflow.cn/v1/audio/transcriptions
+   🤖 使用模型: FunAudioLLM/SenseVoiceSmall
+   📁 音频文件: 1763452968813-151700223.mp3
+   ⏳ 使用 axios 发送请求到SiliconFlow服务器...
+   📬 收到响应: 200 OK
+   📦 API响应数据类型: object
+   🔍 响应包含字段: [ 'text' ]
+   ✅ 成功提取转写文本（从data.text字段）
+✅ 音频转文字成功！文本长度: 1902 字符
+📝 转写预览: Listen to a conversation between a student and a university activities coordinator I understand your...
+音频转文字成功，长度: 1902
+使用本地方法提取关键词
+提取到 50 个关键词
+关键词提取成功，数量: 50
+4:26:05 PM [tsx] change in ./src/services/keywordExtractor.ts Restarting...
+c正在加载词汇库，路径: /Users/zhenkunchen/Desktop/听力练习项目/backend/src/data/ielts-vocabulary.json
+成功加载词汇库，共 330 个单词
+服务器运行在 http://localhost:3001
+可用API端点:
+  - POST /api/upload - 上传音频文件
+  - GET /api/sessions - 获取会话列表
+  - GET /api/session/:id - 获取会话详情
+  - GET /api/session/:id/words - 获取会话单词
+  - GET /api/session/:id/exercise - 获取练习选项
+  - POST /api/practice - 保存练习记录
+  - GET /api/vocabulary/stats - 获取词汇统计
+  - GET /api/vocabulary/practice/:sessionId - 生成词汇练习
+词汇库预加载完成，共 330 个单词
+4:26:23 PM [tsx] change in ./src/services/keywordExtractor.ts Restarting...
+c正在加载词汇库，路径: /Users/zhenkunchen/Desktop/听力练习项目/backend/src/data/ielts-vocabulary.json
+成功加载词汇库，共 330 个单词
+服务器运行在 http://localhost:3001
+可用API端点:
+  - POST /api/upload - 上传音频文件
+  - GET /api/sessions - 获取会话列表
+  - GET /api/session/:id - 获取会话详情
+  - GET /api/session/:id/words - 获取会话单词
+  - GET /api/session/:id/4:26:31 PM [tsx] change in ./src/services/audioProcessor.ts Process hasn't exited. Killing process...
+4:26:48 PM [tsx] change in ./src/services/audioProcessor.ts Process hasn't exited. Killing process...
+4:27:12 PM [tsx] change in ./src/services/audioProcessor.ts Process hasn't exited. Killing process...
+4:27:36 PM [tsx] change in ./src/index.ts Process hasn't exited. Killing process...
+ackend/src/data/ielts-vocabulary.json
+成功加载词汇库，共 330 个单词
+服务器运行在 http://localhost:3001
+可用API端点:
+  - POST /api/upload - 上传音频文件
+  - GET /api/sessions - 获取会话列表
+  - GET /api/session/:id - 获取会话详情
+  - GET /api/session/:id/words - 获取会话单词
+  - GET /api/session/:id/exercise - 获取练习选项
+  - POST /api/practice - 保存练习记录
+  - GET /api/vocabulary/stats - 获取词汇统计
+  - GET /api/vocabulary/practice/:sessionId - 生成词汇练习
+词汇库预加载完成，共 330 个单词
+4:26:48 PM [tsx] change in ./src/services/audioProcessor.ts Restarting...
+c正在加载词汇库，路径: /Users/zhenkunchen/Desktop/听力练习项目/backend/src/data/ielts-vocabulary.json
+成功加载词汇库，共 330 个单词
+服务器运行在 http://localhost:3001
+可用API端点:
+  - POST /api/upload - 上传音频文件
+  - GET /api/sessions - 获取会话列表
+  - GET /api/session/:id - 获取会话详情
+  - GET /api/session/:id/words - 获取会话单词
+  - GET /api/session/:id/exercise - 获取练习选项
+  - POST /api/practice - 保存练习记录
+  - GET /api/vocabulary/stats - 获取词汇统计
+  - GET /api/vocabulary/practice/:sessionId - 生成词汇练习
+词汇库预加载完成，共 330 个单词
+4:27:12 PM [tsx] change in ./src/services/audioProcessor.ts Restarting...
+c正在加载词汇库，路径: /Users/zhenkunchen/Desktop/听力练习项目/backend/src/data/ielts-vocabulary.json
+成功加载词汇库，共 330 个单词
+服务器运行在 http://localhost:3001
+可用API端点:
+  - POST /api/upload - 上传音频文件
+  - GET /api/sessions - 获取会话列表
+  - GET /api/session/:id - 获取会话详情
+  - GET /api/session/:id/words - 获取会话单词
+  - GET /api/session/:id/exercise - 获取练习选项
+  - POST /api/practice - 保存练习记录
+  - GET /api/vocabulary/stats - 获取词汇统计
+  - GET /api/vocabulary/practice/:sessionId - 生成词汇练习
+词汇库预加载完成，共 330 个单词
+4:27:36 PM [tsx] change in ./src/index.ts Restarting...
+c正在加载词汇库，路径: /Users/zhenkunchen/Desktop/听力练习项目/backend/src/data/ielts-vocabulary.json
+成功加载词汇库，共 330 个单词
+服务器运行在 http://localhost:3001
+可用API端点:
+  - POST /api/upload - 上传音频文件
+  - GET /api/sessions - 获取会话列表
+  - GET /api/session/:id - 获取会话详情
+  - GET /api/session/:id/words - 获取会话单词
+  - GET /api/session/:id/exercise - 获取练习选项
+  - POST /api/practice - 保存练习记录
+  - GET /api/vocabulary/stats - 获取词汇统计
+  - GET /api/vocabulary/practice/:sessionId - 生成词汇练习
+词汇库预加载完成，共 330 个单词
