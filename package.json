@@ -1,7 +1,7 @@
 {
   "name": "listening-practice",
   "version": "1.0.0",
-  "description": "英语听力练习项目",
+  "description": "基于 AI 语音识别技术的智能英语听力训练平台，支持音频上传、AI语音识别和交互式单词练习",
   "scripts": {
     "dev:frontend": "cd frontend && npm run dev",
     "dev:backend": "cd backend && npm run dev",
