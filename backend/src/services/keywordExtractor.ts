@@ -11,12 +11,21 @@ export interface ExerciseOption {
   isCorrect: boolean;
 }
 
-export async function extractKeywords(transcript: string, questions: string = ''): Promise<string[]> {
+export async function extractKeywords(transcript: string, questions: string = '', audioDurationSeconds?: number): Promise<string[]> {
   try {
     console.log('使用本地方法提取关键词');
+    
+    // 计算目标关键词数量：每分钟15个
+    let targetKeywordCount = 50; // 默认50个
+    if (audioDurationSeconds) {
+      const durationMinutes = audioDurationSeconds / 60;
+      targetKeywordCount = Math.round(durationMinutes * 15);
+      console.log(`音频时长: ${durationMinutes.toFixed(2)}分钟，目标提取: ${targetKeywordCount}个关键词`);
+    }
+    
     // 使用基于频率的本地关键词提取方法
-    const keywords = extractKeywordsFallback(transcript);
-    console.log(`提取到 ${keywords.length} 个关键词`);
+    const keywords = extractKeywordsFallback(transcript, targetKeywordCount);
+    console.log(`实际提取到 ${keywords.length} 个关键词`);
     return keywords;
   } catch (error: any) {
     console.error('关键词提取错误:', error);
@@ -87,7 +96,7 @@ export function generateExerciseOptions(keywords: string[], transcript: string, 
 }
 
 // 后备方法：基于词频提取关键词
-function extractKeywordsFallback(transcript: string): string[] {
+function extractKeywordsFallback(transcript: string, targetCount: number = 50): string[] {
   // 常见功能词列表（排除这些词）
   const stopWords = new Set([
     'the', 'a', 'an', 'and', 'or', 'but', 'in', 'on', 'at', 'to', 'for',
@@ -116,7 +125,10 @@ function extractKeywordsFallback(transcript: string): string[] {
     wordFreq.set(word, (wordFreq.get(word) || 0) + 1);
   });
 
-  // 返回出现频率较高的单词（至少出现2次，或按频率排序取前50个）
+  // 确保目标数量在合理范围内
+  const maxKeywords = Math.min(targetCount, wordFreq.size);
+  
+  // 返回出现频率较高的单词
   return Array.from(wordFreq.entries())
     .filter(([word, freq]) => freq >= 2 || word.length > 5) // 长单词或高频词
     .sort((a, b) => {
@@ -124,6 +136,6 @@ function extractKeywordsFallback(transcript: string): string[] {
       if (b[1] !== a[1]) return b[1] - a[1];
       return b[0].length - a[0].length;
     })
-    .slice(0, 50)
+    .slice(0, maxKeywords)
     .map(([word]) => word);
 }

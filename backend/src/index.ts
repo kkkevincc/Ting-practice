@@ -238,10 +238,14 @@ app.post('/api/upload', optionalAuthenticate, (req, res, next) => {
 
     // 异步处理音频（转文字和提取关键词）
     processAudio(audioFile.path)
-      .then(async (transcript) => {
+      .then(async (result) => {
+        const { transcript, duration } = result;
         console.log('音频转文字成功，长度:', transcript.length);
+        if (duration) {
+          console.log('音频时长:', duration.toFixed(2), '秒');
+        }
         // 如果有题目，使用题目提取关键词；如果没有，仅从音频原文提取
-        const keywords = await extractKeywords(transcript, questionsContent || '');
+        const keywords = await extractKeywords(transcript, questionsContent || '', duration);
         console.log('关键词提取成功，数量:', keywords.length);
         const keywordsJson = JSON.stringify(keywords);
         

@@ -22,6 +22,7 @@ function App() {
   const [showTranscript, setShowTranscript] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(true); // 默认深色模式
   const [userStats, setUserStats] = useState({ totalSessions: 0, totalTime: 0, accuracy: 0 });
+  const [showKeywordsHint, setShowKeywordsHint] = useState(false); // 控制关键词提示的显示
 
   const handleUploadSuccess = (uploadResponse: SessionData) => {
     setSession(uploadResponse);
@@ -311,39 +312,96 @@ function App() {
 
                   <div className="xl:col-span-1">
                     <div className={`rounded-3xl border p-6 sticky top-24 transition-all duration-300 hover:shadow-lg ${getCardClasses()}`}>
-                      <div className="flex items-center mb-6">
-                        <div className={`w-10 h-10 rounded-full flex items-center justify-center mr-4 ${
-                          isDarkMode ? 'bg-purple-900/30' : 'bg-purple-50'
-                        }`}>
-                          <svg className={`w-5 h-5 ${isDarkMode ? 'text-purple-400' : 'text-purple-600'}`} fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                          </svg>
+                      <div className="flex items-center justify-between mb-6">
+                        <div className="flex items-center">
+                          <div className={`w-10 h-10 rounded-full flex items-center justify-center mr-4 ${
+                            isDarkMode ? 'bg-purple-900/30' : 'bg-purple-50'
+                          }`}>
+                            <svg className={`w-5 h-5 ${isDarkMode ? 'text-purple-400' : 'text-purple-600'}`} fill="currentColor" viewBox="0 0 20 20">
+                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                          </div>
+                          <div>
+                            <h2 className="text-xl font-bold">
+                              关键词提示
+                            </h2>
+                            <p className={`text-xs ${isDarkMode ? 'text-gray-500' : 'text-gray-400'}`}>
+                              {keywords.length} 个关键词
+                            </p>
+                          </div>
                         </div>
-                        <h2 className="text-xl font-bold">
-                          关键词提取
-                        </h2>
+                        
+                        {keywords.length > 0 && (
+                          <button
+                            onClick={() => setShowKeywordsHint(!showKeywordsHint)}
+                            className={`p-2 rounded-lg transition-all duration-200 hover:scale-110 ${
+                              isDarkMode 
+                                ? 'bg-gray-800/50 hover:bg-gray-700/50 text-gray-300' 
+                                : 'bg-gray-100 hover:bg-gray-200 text-gray-600'
+                            }`}
+                            title={showKeywordsHint ? "隐藏关键词" : "显示关键词"}
+                          >
+                            <svg 
+                              className={`w-5 h-5 transition-transform duration-200 ${showKeywordsHint ? 'rotate-180' : ''}`} 
+                              fill="none" 
+                              stroke="currentColor" 
+                              viewBox="0 0 24 24"
+                            >
+                              {showKeywordsHint ? (
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                              ) : (
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                              )}
+                            </svg>
+                          </button>
+                        )}
                       </div>
                       
                       {keywords.length > 0 ? (
-                        <div className="space-y-3">
-                          <p className={`text-sm font-medium ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>
-                            点击词汇练习
-                          </p>
-                          <div className="flex flex-wrap gap-2">
-                            {keywords.map((keyword, index) => (
-                              <span
-                                key={index}
-                                className={`inline-flex items-center px-3 py-2 rounded-full text-sm font-medium border cursor-pointer transition-all duration-200 hover:scale-105 ${
-                                  isDarkMode 
-                                    ? 'bg-gradient-to-r from-blue-900/30 to-purple-900/30 text-blue-300 border-blue-700/50 hover:border-blue-600/50' 
-                                    : 'bg-gradient-to-r from-blue-50 to-purple-50 text-blue-700 border-blue-200 hover:border-blue-300 hover:shadow-md'
-                                }`}
+                        <>
+                          {showKeywordsHint ? (
+                            <div className="space-y-3 animate-fade-in">
+                              <div className={`p-3 rounded-lg ${
+                                isDarkMode ? 'bg-yellow-900/20 border border-yellow-700/30' : 'bg-yellow-50 border border-yellow-200'
+                              }`}>
+                                <p className={`text-sm ${isDarkMode ? 'text-yellow-300' : 'text-yellow-700'}`}>
+                                  💡 提示：这些是从音频中提取的关键词
+                                </p>
+                              </div>
+                              <div className="flex flex-wrap gap-2 max-h-96 overflow-y-auto">
+                                {keywords.map((keyword, index) => (
+                                  <span
+                                    key={index}
+                                    className={`inline-flex items-center px-3 py-2 rounded-full text-sm font-medium border transition-all duration-200 hover:scale-105 ${
+                                      isDarkMode 
+                                        ? 'bg-gradient-to-r from-emerald-900/30 to-teal-900/30 text-emerald-300 border-emerald-700/50 hover:border-emerald-600/50' 
+                                        : 'bg-gradient-to-r from-emerald-50 to-teal-50 text-emerald-700 border-emerald-200 hover:border-emerald-300 hover:shadow-md'
+                                    }`}
+                                  >
+                                    {keyword}
+                                  </span>
+                                ))}
+                              </div>
+                            </div>
+                          ) : (
+                            <div className="text-center py-8">
+                              <svg 
+                                className={`w-16 h-16 mx-auto mb-4 ${isDarkMode ? 'text-gray-700' : 'text-gray-300'}`} 
+                                fill="currentColor" 
+                                viewBox="0 0 20 20"
                               >
-                                {keyword}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
+                                <path fillRule="evenodd" d="M3.707 2.293a1 1 0 00-1.414 1.414l14 14a1 1 0 001.414-1.414l-1.473-1.473A10.014 10.014 0 0019.542 10C18.268 5.943 14.478 3 10 3a9.958 9.958 0 00-4.512 1.074l-1.78-1.781zm4.261 4.26l1.514 1.515a2.003 2.003 0 012.45 2.45l1.514 1.514a4 4 0 00-5.478-5.478z" clipRule="evenodd" />
+                                <path d="M12.454 16.697L9.75 13.992a4 4 0 01-3.742-3.741L2.335 6.578A9.98 9.98 0 00.458 10c1.274 4.057 5.065 7 9.542 7 .847 0 1.669-.105 2.454-.303z" />
+                              </svg>
+                              <p className={`text-sm font-medium ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>
+                                点击右上角 + 按钮查看关键词提示
+                              </p>
+                              <p className={`text-xs mt-2 ${isDarkMode ? 'text-gray-500' : 'text-gray-400'}`}>
+                                先尝试自己听懂，再查看提示哦！
+                              </p>
+                            </div>
+                          )}
+                        </>
                       ) : (
                         <div className="text-center py-8">
                           <div className={`inline-flex items-center justify-center w-12 h-12 rounded-full mb-4 ${

@@ -135,11 +135,11 @@ PORT=3001
 
 在终端运行:
 ```bash
-curl --request POST \
-  --url https://api.siliconflow.cn/v1/audio/transcriptions \
-  --header 'Authorization: Bearer sk-fxjhwmgwogymnmcbcyxyxshdjtuaxbdvvfasxearstkixwdz' \
-  --header 'Content-Type: multipart/form-data' \
-  --form model=FunAudioLLM/SenseVoiceSmall \
+curl --request POST /
+  --url https://api.siliconflow.cn/v1/audio/transcriptions /
+  --header 'Authorization: Bearer sk-fxjhwmgwogymnmcbcyxyxshdjtuaxbdvvfasxearstkixwdz' /
+  --header 'Content-Type: multipart/form-data' /
+  --form model=FunAudioLLM/SenseVoiceSmall /
   --form file=@/path/to/your/audio.mp3
 ```
 
