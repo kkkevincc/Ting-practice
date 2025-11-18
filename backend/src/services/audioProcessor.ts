@@ -1,6 +1,7 @@
 import fs from 'fs-extra';
 import path from 'path';
 import dotenv from 'dotenv';
+import axios from 'axios';
 
 dotenv.config();
 
@@ -52,53 +53,61 @@ async function processAudioWithSiliconFlow(audioPath: string): Promise<string> {
   console.log(`   🤖 使用模型: ${model}`);
   console.log(`   📁 音频文件: ${path.basename(audioPath)}`);
   
-  // 动态导入form-data以避免ES模块兼容性问题
-  const { default: FormData } = await import('form-data');
-  
-  const form = new FormData();
-  form.append('model', model); // SiliconFlow官方推荐模型
-  
-  // 关键：使用文件流而不是Buffer，与curl命令完全一致
-  form.append('file', fs.createReadStream(audioPath));
+  try {
+    // 使用 axios 和 form-data，这是最可靠的方式
+    const { default: FormData } = await import('form-data');
+    
+    const form = new FormData();
+    form.append('model', model);
+    form.append('file', fs.createReadStream(audioPath));
 
-  const options = {
-    method: 'POST',
-    headers: {
-      ...form.getHeaders(), // FormData会自动处理Content-Type和boundary
-      'Authorization': `Bearer ${process.env.SILICONFLOW_API_KEY}`,
-    },
-    body: form
-  };
-
-  console.log(`   ⏳ 发送请求到SiliconFlow服务器...`);
-  const response = await fetch(url, options);
-  
-  console.log(`   📬 收到响应: ${response.status} ${response.statusText}`);
-  
-  if (!response.ok) {
-    const errorText = await response.text();
-    console.error(`   ❌ SiliconFlow API错误: ${response.status} ${response.statusText}`);
-    console.error(`   📄 错误详情:`, errorText);
-    throw new Error(`SiliconFlow API错误: ${response.status} ${response.statusText}`);
-  }
-
-  const data: any = await response.json();
-  console.log(`   📦 API响应数据类型:`, typeof data);
-  console.log(`   🔍 响应包含字段:`, Object.keys(data));
-  
-  // 根据SiliconFlow API的响应格式提取文本
-  if (data.text) {
-    console.log(`   ✅ 成功提取转写文本（从data.text字段）`);
-    return data.text;
-  } else if (data.transcription) {
-    console.log(`   ✅ 成功提取转写文本（从data.transcription字段）`);
-    return data.transcription;
-  } else if (typeof data === 'string') {
-    console.log(`   ✅ 成功提取转写文本（响应本身是字符串）`);
-    return data;
-  } else {
-    console.error(`   ❌ 未知的API响应格式:`, JSON.stringify(data));
-    throw new Error('API响应格式未知');
+    console.log(`   ⏳ 使用 axios 发送请求到SiliconFlow服务器...`);
+    
+    const response = await axios.post(url, form, {
+      headers: {
+        ...form.getHeaders(), // 让 form-data 自动设置正确的 Content-Type 和 boundary
+        'Authorization': `Bearer ${process.env.SILICONFLOW_API_KEY}`,
+      },
+      maxBodyLength: Infinity,
+      maxContentLength: Infinity,
+    });
+    
+    console.log(`   📬 收到响应: ${response.status} ${response.statusText}`);
+    console.log(`   📦 API响应数据类型:`, typeof response.data);
+    console.log(`   🔍 响应包含字段:`, Object.keys(response.data || {}));
+    
+    const data = response.data;
+    
+    // 根据SiliconFlow API的响应格式提取文本
+    if (data.text) {
+      console.log(`   ✅ 成功提取转写文本（从data.text字段）`);
+      return data.text;
+    } else if (data.transcription) {
+      console.log(`   ✅ 成功提取转写文本（从data.transcription字段）`);
+      return data.transcription;
+    } else if (typeof data === 'string') {
+      console.log(`   ✅ 成功提取转写文本（响应本身是字符串）`);
+      return data;
+    } else {
+      console.error(`   ❌ 未知的API响应格式:`, JSON.stringify(data));
+      throw new Error('API响应格式未知');
+    }
+    
+  } catch (error: any) {
+    if (error.response) {
+      // 服务器返回了错误响应
+      console.error(`   ❌ SiliconFlow API错误: ${error.response.status} ${error.response.statusText}`);
+      console.error(`   📄 错误详情:`, error.response.data);
+      throw new Error(`SiliconFlow API错误: ${error.response.status} - ${JSON.stringify(error.response.data)}`);
+    } else if (error.request) {
+      // 请求已发送但没有收到响应
+      console.error(`   ❌ 网络错误: 无法连接到SiliconFlow服务器`);
+      throw new Error('网络错误: 无法连接到API服务器');
+    } else {
+      // 其他错误
+      console.error(`   ❌ 请求配置错误:`, error.message);
+      throw error;
+    }
   }
 }
 
