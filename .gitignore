@@ -16,6 +16,7 @@ frontend-log.txt
 # 构建输出
 dist/
 build/
+docs/
 *.tsbuildinfo
 
 # 上传文件

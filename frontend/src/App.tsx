@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import FileUpload from './components/FileUpload';
 import PracticeArea from './components/PracticeArea';
 import QuestionsDisplay from './components/QuestionsDisplay';
@@ -17,6 +18,7 @@ interface SessionData {
 }
 
 function App() {
+  const navigate = useNavigate();
   const [session, setSession] = useState<SessionData | null>(null);
   const [keywords, setKeywords] = useState<string[]>([]);
   const [showTranscript, setShowTranscript] = useState(false);
@@ -24,6 +26,7 @@ function App() {
   const [userStats, setUserStats] = useState({ totalSessions: 0, totalTime: 0, accuracy: 0 });
   const [showKeywordsHint, setShowKeywordsHint] = useState(false); // 控制关键词提示的显示
   const [showHistory, setShowHistory] = useState(false); // 控制历史记录的显示
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // 登录状态
 
   const handleUploadSuccess = (uploadResponse: SessionData) => {
     setSession(uploadResponse);
@@ -33,6 +36,12 @@ function App() {
       totalSessions: prev.totalSessions + 1
     }));
   };
+
+  useEffect(() => {
+    // 检查登录状态
+    const token = localStorage.getItem('token');
+    setIsLoggedIn(!!token);
+  }, []);
 
   useEffect(() => {
     if (!session?.id) return;
@@ -151,6 +160,50 @@ function App() {
                   <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd"/>
                 </svg>
               </button>
+
+              {isLoggedIn && (
+                <Link
+                  to="/statistics"
+                  className={`p-2 rounded-xl transition-all duration-200 hover:scale-110 ${
+                    isDarkMode 
+                      ? 'bg-gray-800/50 text-purple-400 hover:bg-gray-700/50 border border-gray-700' 
+                      : 'bg-gray-100 text-purple-600 hover:bg-gray-200'
+                  }`}
+                  title="查看统计"
+                >
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/>
+                  </svg>
+                </Link>
+              )}
+
+              {!isLoggedIn ? (
+                <Link
+                  to="/login"
+                  className={`px-4 py-2 rounded-xl transition-all duration-200 hover:scale-105 ${
+                    isDarkMode 
+                      ? 'bg-emerald-500/20 text-emerald-400 hover:bg-emerald-500/30 border border-emerald-500/50' 
+                      : 'bg-blue-50 text-blue-600 hover:bg-blue-100 border border-blue-200'
+                  }`}
+                >
+                  登录
+                </Link>
+              ) : (
+                <button
+                  onClick={() => {
+                    localStorage.removeItem('token');
+                    setIsLoggedIn(false);
+                    navigate('/');
+                  }}
+                  className={`px-4 py-2 rounded-xl transition-all duration-200 hover:scale-105 ${
+                    isDarkMode 
+                      ? 'bg-gray-800/50 text-gray-300 hover:bg-gray-700/50 border border-gray-700' 
+                      : 'bg-gray-100 text-gray-600 hover:bg-gray-200 border border-gray-200'
+                  }`}
+                >
+                  退出
+                </button>
+              )}
 
               <button
                 onClick={() => setIsDarkMode(!isDarkMode)}

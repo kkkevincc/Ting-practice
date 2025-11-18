@@ -114,7 +114,9 @@ app.post('/api/auth/register', async (req, res) => {
       return res.status(400).json({ error: '请提供用户名、邮箱和密码' });
     }
     const user = await registerUser(username, email, password);
-    res.json({ message: '注册成功', user });
+    // 注册后自动登录，生成token
+    const loginResult = await loginUser(username, password);
+    res.json({ message: '注册成功', user: loginResult.user, token: loginResult.token });
   } catch (error: any) {
     res.status(400).json({ error: error.message });
   }

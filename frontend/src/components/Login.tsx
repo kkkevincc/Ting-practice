@@ -28,12 +28,13 @@ export default function Login() {
       const response = await api.post('/auth/login', formData);
       
       // 保存token到localStorage
-      localStorage.setItem('token', response.data.token);
-      
-      // 更新API实例的默认headers
-      api.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`;
+      if (response.data.token) {
+        localStorage.setItem('token', response.data.token);
+      }
       
       navigate('/');
+      // 刷新页面以更新登录状态
+      window.location.reload();
     } catch (err: any) {
       setError(err.response?.data?.error || '登录失败');
     } finally {
