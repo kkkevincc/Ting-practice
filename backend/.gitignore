@@ -3,3 +3,9 @@ dist/
 uploads/
 .env
 *.log
+*-log.txt
+backend-log.txt
+data/*.json
+!data/.gitkeep
+*.backup
+*.bak

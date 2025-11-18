@@ -17,7 +17,6 @@ interface ExerciseData {
 
 interface PracticeAreaProps {
   sessionId: string;
-  onWordClick: (wordId: number) => void;
   onPracticeComplete: (results: any) => void;
 }
 

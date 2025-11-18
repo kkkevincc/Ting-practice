@@ -18,7 +18,6 @@ interface SessionData {
 
 function App() {
   const [session, setSession] = useState<SessionData | null>(null);
-  const [words, setWords] = useState<Array<{ id: number; text: string; clicked: boolean }>>([]);
   const [keywords, setKeywords] = useState<string[]>([]);
   const [showTranscript, setShowTranscript] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(true); // 默认深色模式
@@ -47,7 +46,6 @@ function App() {
         if (data.status === 'completed') {
           const wordsRes = await api.get(`/session/${session.id}/words`);
           const wordsData = wordsRes.data;
-          setWords(wordsData.words);
           setKeywords(wordsData.keywords || []);
         }
       } catch (error) {
@@ -61,13 +59,6 @@ function App() {
     return () => clearInterval(interval);
   }, [session?.id]);
 
-  const handleWordClick = (wordId: number) => {
-    setWords(prevWords =>
-      prevWords.map(word =>
-        word.id === wordId ? { ...word, clicked: !word.clicked } : word
-      )
-    );
-  };
 
   const handlePracticeComplete = (results: any) => {
     console.log('练习完成:', results);
@@ -82,7 +73,6 @@ function App() {
 
   const resetSession = () => {
     setSession(null);
-    setWords([]);
     setKeywords([]);
     setShowTranscript(false);
   };
@@ -449,7 +439,6 @@ function App() {
                   </div>
                   <PracticeArea 
                     sessionId={session.id} 
-                    onWordClick={handleWordClick}
                     onPracticeComplete={handlePracticeComplete}
                   />
                 </div>

@@ -1,6 +1,57 @@
+# 依赖
 node_modules/
+package-lock.json
+
+# 环境变量
 .env
+.env.local
+.env.*.local
+
+# 日志文件
 *.log
+*-log.txt
+backend-log.txt
+frontend-log.txt
+
+# 构建输出
 dist/
+build/
+*.tsbuildinfo
+
+# 上传文件
 uploads/
+backend/uploads/
+
+# 数据文件（开发环境）
+backend/data/*.json
+!backend/data/.gitkeep
+
+# 系统文件
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 测试文件
+test-*.js
+*.test.js
+*.spec.js
+
+# 备份文件
+*.backup
+*.bak
+*~
+
+# 临时文件
+*.tmp
+*.temp

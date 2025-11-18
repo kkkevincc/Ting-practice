@@ -1,8 +1,18 @@
 import React, { useState } from 'react';
 import api from '../services/api';
 
+interface SessionData {
+  id: string;
+  audioUrl: string;
+  questions: string;
+  transcript: string | null;
+  keywords: string[] | null;
+  status: 'processing' | 'completed' | 'error';
+  created_at?: string;
+}
+
 interface FileUploadProps {
-  onUploadSuccess: (sessionId: string) => void;
+  onUploadSuccess: (sessionData: SessionData) => void;
   isDarkMode?: boolean;
 }
 
